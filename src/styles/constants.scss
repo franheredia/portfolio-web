@@ -1,0 +1,35 @@
+// Constants
+:root {
+  --color-background: #020151;
+  --color-text: #f1f2f3;
+  --color-accent: #ec7198;
+  --color-accent-strong: #d45a82;
+  --color-accent-soft: #fad4e2;
+  --color-accent-muted: #c97894;
+  --color-text-muted: rgb(241 242 243 / 78%);
+  --color-text-subtle: rgb(241 242 243 / 55%);
+  --color-text-faint: rgb(241 242 243 / 35%);
+  --color-surface-elevated: rgb(255 255 255 / 8%);
+  --color-border-subtle: rgb(255 255 255 / 14%);
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+}
+
+// Tokens
+$color-background: var(--color-background);
+$color-text: var(--color-text);
+$color-accent: var(--color-accent);
+$color-accent-strong: var(--color-accent-strong);
+$color-accent-soft: var(--color-accent-soft);
+$color-accent-muted: var(--color-accent-muted);
+$color-text-muted: var(--color-text-muted);
+$color-text-subtle: var(--color-text-subtle);
+$color-text-faint: var(--color-text-faint);
+$color-surface-elevated: var(--color-surface-elevated);
+$color-border-subtle: var(--color-border-subtle);
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
+$radius-xl: var(--radius-xl);
