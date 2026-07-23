@@ -11,6 +11,10 @@
   --color-text-subtle: rgb(241 242 243 / 55%);
   --color-text-faint: rgb(241 242 243 / 35%);
   --color-surface-elevated: rgb(255 255 255 / 8%);
+  --color-surface-light: #f1f2f3;
+  --color-on-surface-light: #030247;
+  --color-on-accent: #ffffff;
+  --color-overlay: rgb(3 2 71 / 72%);
   --color-border-subtle: rgb(255 255 255 / 14%);
   --radius-sm: 0.625rem;
   --radius-md: 1rem;
@@ -31,6 +35,10 @@ $color-text-styled: var(--color-text-styled);
 $color-text-subtle: var(--color-text-subtle);
 $color-text-faint: var(--color-text-faint);
 $color-surface-elevated: var(--color-surface-elevated);
+$color-surface-light: var(--color-surface-light);
+$color-on-surface-light: var(--color-on-surface-light);
+$color-on-accent: var(--color-on-accent);
+$color-overlay: var(--color-overlay);
 $color-border-subtle: var(--color-border-subtle);
 $radius-sm: var(--radius-sm);
 $radius-md: var(--radius-md);
@@ -47,6 +55,5 @@ $breakpoint-sm: 480px;
 $breakpoint-lg: 1024px;
 
 // Shared effects
-$color-on-accent: #fff;
 $shadow-elevated: 0 8px 24px rgb(0 0 0 / 20%);
 $shadow-hero-card: 0 1.25rem 3rem rgb(0 0 0 / 25%);

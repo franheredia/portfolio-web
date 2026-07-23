@@ -1,0 +1,30 @@
+.dev-stats {
+  display: grid;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+
+  &__stat {
+    margin: 0;
+    text-align: center;
+  }
+
+  &__stat-value {
+    margin: 0;
+    font-size: clamp(2.5rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1;
+    color: $color-text;
+  }
+
+  &__stat-label {
+    margin: 0.5rem 0 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $color-text-subtle;
+  }
+}
