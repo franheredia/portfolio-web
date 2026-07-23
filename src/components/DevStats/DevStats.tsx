@@ -1,4 +1,4 @@
-import { STATS } from "@/data/hero";
+import { STATS } from "@/data/profile";
 import "./DevStats.scss";
 
 export function DevStats() {

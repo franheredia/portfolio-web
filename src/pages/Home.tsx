@@ -1,37 +1,4 @@
 import { useState } from "react";
-import {
-  SiAngular,
-  SiBootstrap,
-  SiChakraui,
-  SiClickup,
-  SiCursor,
-  SiDjango,
-  SiGit,
-  SiHtml5,
-  SiJavascript,
-  SiJira,
-  SiJquery,
-  SiPython,
-  SiReact,
-  SiSass,
-  SiSupabase,
-  SiSvelte,
-  SiTailwindcss,
-  SiTypescript,
-  SiWordpress,
-} from "@icons-pack/react-simple-icons";
-import {
-  ArrowBigUpDash,
-  BookOpenCheck,
-  BrainCog,
-  FastForward,
-  HeartHandshake,
-  MessageCircleCheck,
-  NotebookPen,
-  RefreshCcwDot,
-  Smile,
-  UsersRound,
-} from "lucide-react";
 import { ConfirmDialog } from "@/components/ConfirmDialog/ConfirmDialog";
 import { CtaCards } from "@/components/CtaCards/CtaCards";
 import { DevStats } from "@/components/DevStats/DevStats";
@@ -40,49 +7,11 @@ import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
 import { ServiceContactModal } from "@/components/ServiceContactModal/ServiceContactModal";
 import { SkillBadge } from "@/components/SkillBadge/SkillBadge";
 import { openContactLink, type ContactChannel } from "@/data/contact";
-import { HERO } from "@/data/hero";
+import { HERO, SOFT_SKILLS, TECHNICAL_SKILLS } from "@/data/profile";
 import { getProjectFormat, PROJECTS } from "@/data/projects";
 import { getServiceById } from "@/data/services";
 import { useHomeBreakpoint } from "@/hooks/useHomeBreakpoint";
 import "./Home.scss";
-
-const SOFT_SKILLS: { name: string; Icon: typeof SiReact }[] = [
-  { name: "Autodidacta", Icon: ArrowBigUpDash },
-  { name: "Carisma", Icon: Smile },
-  { name: "Conocimientos pedagogicos", Icon: BookOpenCheck },
-  { name: "Excelente comunicación", Icon: MessageCircleCheck },
-  { name: "Gestión de equipos", Icon: NotebookPen },
-  { name: "Liderazgo", Icon: UsersRound },
-  { name: "Rápida solución de problemas", Icon: FastForward },
-  { name: "Trabajo en equipo", Icon: HeartHandshake },
-];
-
-const TECHNICAL_SKILLS: { name: string; Icon: typeof SiReact }[] = [
-  { name: "AngularJS", Icon: SiAngular },
-  { name: "Bootstrap", Icon: SiBootstrap },
-  { name: "ChakraUI", Icon: SiChakraui },
-  { name: "Clickup", Icon: SiClickup },
-  { name: "Cursor AI", Icon: SiCursor },
-  { name: "Django REST", Icon: SiDjango },
-  { name: "Django", Icon: SiDjango },
-  { name: "GIT", Icon: SiGit },
-  { name: "HTML", Icon: SiHtml5 },
-  { name: "Inteligencia Artificial", Icon: BrainCog },
-  { name: "Javascript", Icon: SiJavascript },
-  { name: "Jira", Icon: SiJira },
-  { name: "JQuery", Icon: SiJquery },
-  { name: "Python", Icon: SiPython },
-  { name: "React Native", Icon: SiReact },
-  { name: "ReactJs", Icon: SiReact },
-  { name: "Scrum", Icon: RefreshCcwDot },
-  { name: "SCSS", Icon: SiSass },
-  { name: "Supabase", Icon: SiSupabase },
-  { name: "Svelte", Icon: SiSvelte },
-  { name: "SvelteKit", Icon: SiSvelte },
-  { name: "Tailwind", Icon: SiTailwindcss },
-  { name: "Typescript", Icon: SiTypescript },
-  { name: "Wordpress", Icon: SiWordpress },
-];
 
 function Home() {
   const { isLg } = useHomeBreakpoint();

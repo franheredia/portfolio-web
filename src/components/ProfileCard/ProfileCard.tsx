@@ -3,7 +3,7 @@ import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import linkedInSvg from "@/assets/linkedIn.svg?raw";
 import { Mail } from "lucide-react";
 import { SOCIAL_LINKS, type ContactChannel } from "@/data/contact";
-import { HERO } from "@/data/hero";
+import { HERO } from "@/data/profile";
 import "./ProfileCard.scss";
 
 type SocialIconId = "email" | "linkedin" | "whatsapp";
