@@ -34,8 +34,73 @@ import {
   Smile,
   RefreshCcwDot,
   UsersRound,
+  ArrowRight,
 } from "lucide-react";
 
+const projectBase = `${import.meta.env.BASE_URL}projects/`;
+
+type Project = {
+  title: string;
+  description?: string;
+  year: string;
+  tags: string[];
+  imageSrc: string;
+  href: string;
+};
+
+const FEATURED_PROJECTS: Project[] = [
+  {
+    title: "Liderazgo de equipo de desarrollo - Kilimo",
+    year: "2022 - 2024",
+    tags: [
+      "Liderazgo de equipo",
+      "Lider de delivery de software",
+      "AngularJS",
+      "Cursor AI",
+      "SCSS"
+    ],
+    imageSrc: `${projectBase}kilimo.png`,
+    href: "#",
+  },
+  {
+    title: "Página oficial - Toyota Argentina",
+    year: "2021",
+    tags: [
+      "Svelte",
+      "SvelteKit",
+      "Vercel",
+      "Vite",
+      "TailwindCSS",
+      "Google Tag Manager",
+    ],
+    imageSrc: `${projectBase}toyota.png`,
+    href: "#",
+  },
+];
+
+const PROJECTS: Project[] = [
+  {
+    title: "Página oficial de marketing - Distribuidora Fusion",
+    year: "2026",
+    tags: ["ReactJS", "SCSS", "Vercel", "React Router"],
+    imageSrc: `${projectBase}fusion.png`,
+    href: "#",
+  },
+  {
+    title: "Mantenimiento y desarrollo - Cresciente Teoría Musical",
+    year: "2024",
+    tags: ["Wordpress", "PHP", "MySQL", "Elementor", "WooCommerce"],
+    imageSrc: `${projectBase}cresciente.png`,
+    href: "#",
+  },
+  {
+    title: "Eccomerce con Tienda Nube - Panichelli",
+    year: "2026",
+    tags: ["Tienda Nube", "Asesoría"],
+    imageSrc: `${projectBase}panichelli.png`,
+    href: "#",
+  },
+];
 const HERO = {
   name: "Franco Heredia",
   tagline:
@@ -229,6 +294,101 @@ function SkillCard({ name, Icon }: { name: string; Icon: typeof SiReact }) {
   );
 }
 
+function ProjectTags({ tags }: { tags: string[] }) {
+  return (
+    <ul className="home-projects__tags">
+      {tags.map((tag) => (
+        <li key={tag} className="home-projects__tag">
+          {tag}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function ProjectCardLink({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      className="home-projects__link"
+      aria-label="Ver proyecto"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <ArrowRight size={20} aria-hidden />
+    </a>
+  );
+}
+
+function ProjectImage({
+  src,
+  title,
+  variant,
+}: {
+  src: string;
+  title: string;
+  variant: "featured" | "compact";
+}) {
+  const [failed, setFailed] = useState(false);
+  const className =
+    variant === "featured"
+      ? "home-projects__image home-projects__image--featured"
+      : "home-projects__image home-projects__image--compact";
+
+  if (failed) {
+    return (
+      <div
+        className={`${className} home-projects__image-fallback`}
+        role="img"
+        aria-label={title}
+      />
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt=""
+      className={className}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
+function ProjectCard({
+  project,
+  variant,
+}: {
+  project: Project;
+  variant: "featured" | "compact";
+}) {
+  const cardClass =
+    variant === "featured"
+      ? "home-projects__card home-projects__card--featured"
+      : "home-projects__card home-projects__card--compact";
+
+  return (
+    <article className={cardClass}>
+      <ProjectImage
+        src={project.imageSrc}
+        title={project.title}
+        variant={variant}
+      />
+      <div className="home-projects__body">
+        <h3 className="home-projects__name">{project.title}</h3>
+        {project.description ? (
+          <p className="home-projects__description">{project.description}</p>
+        ) : null}
+        <ProjectTags tags={project.tags} />
+        <footer className="home-projects__footer">
+          <span className="home-projects__year">{project.year}</span>
+          <ProjectCardLink href={project.href} />
+        </footer>
+      </div>
+    </article>
+  );
+}
+
 function Home() {
   return (
     <>
@@ -300,6 +460,30 @@ function Home() {
             <SkillCard key={name} name={name} Icon={Icon} />
           ))}
         </ul>
+      </section>
+      <section className="home-projects" aria-labelledby="home-projects-title">
+        <h2 id="home-projects-title" className="home-projects__title">
+          Algunos de los proyectos donde trabajé
+        </h2>
+        <div className="home-projects__layout">
+          <ProjectCard
+            key={FEATURED_PROJECTS[0].title}
+            project={FEATURED_PROJECTS[0]}
+            variant="featured"
+          />
+          <ul className="home-projects__grid">
+            {PROJECTS.map((project) => (
+              <li key={project.title}>
+                <ProjectCard project={project} variant="compact" />
+              </li>
+            ))}
+          </ul>
+          <ProjectCard
+            key={FEATURED_PROJECTS[1].title}
+            project={FEATURED_PROJECTS[1]}
+            variant="featured"
+          />
+        </div>
       </section>
     </>
   );
