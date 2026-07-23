@@ -48,7 +48,7 @@
     margin: 0 0 1.25rem;
     font-size: 0.9rem;
     line-height: 1.5;
-    color: #4a4a68;
+    color: $color-text-styled;
   }
 
   &__social {
@@ -114,7 +114,7 @@
     }
 
     &--muted {
-      color: $color-text-faint;
+      color: $color-text-styled;
     }
   }
 
@@ -123,7 +123,7 @@
     margin: 1.25rem auto 0;
     font-size: 1.05rem;
     line-height: 1.65;
-    color: $color-text-muted;
+    color: $color-text-styled;
   }
 
   &__stats {
@@ -328,7 +328,7 @@
   &__description {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: $color-text-muted;
+    color: $color-text-styled;
   }
 
   &__tags {
@@ -342,7 +342,7 @@
 
   &__tag {
     padding: 0.25rem 0.65rem;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: $color-accent;
     border: 1px solid $color-accent;

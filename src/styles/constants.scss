@@ -1,6 +1,7 @@
 // Constants
 :root {
   --color-background: #020151;
+  --color-text-styled: #7d62a9;
   --color-text: #f1f2f3;
   --color-accent: #ec7198;
   --color-accent-strong: #d45a82;
@@ -15,6 +16,8 @@
   --radius-md: 1rem;
   --radius-lg: 1.25rem;
   --radius-xl: 2rem;
+  --font-body: 'Libre Franklin', system-ui, sans-serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
 }
 
 // Tokens
@@ -24,7 +27,7 @@ $color-accent: var(--color-accent);
 $color-accent-strong: var(--color-accent-strong);
 $color-accent-soft: var(--color-accent-soft);
 $color-accent-muted: var(--color-accent-muted);
-$color-text-muted: var(--color-text-muted);
+$color-text-styled: var(--color-text-styled);
 $color-text-subtle: var(--color-text-subtle);
 $color-text-faint: var(--color-text-faint);
 $color-surface-elevated: var(--color-surface-elevated);
@@ -33,6 +36,8 @@ $radius-sm: var(--radius-sm);
 $radius-md: var(--radius-md);
 $radius-lg: var(--radius-lg);
 $radius-xl: var(--radius-xl);
+$font-body: var(--font-body);
+$font-heading: var(--font-heading);
 
 // Layout
 $layout-max-width: 72rem;
