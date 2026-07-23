@@ -96,7 +96,7 @@ const PROJECTS: Project[] = [
     href: "#",
   },
   {
-    title: "Eccomerce con Tienda Nube - Panichelli",
+    title: "Eccomerce con Tienda Nube - Corralón Panichelli",
     year: "2026",
     tags: ["Tienda Nube", "Asesoría"],
     imageSrc: `${projectBase}panichelli.png`,
@@ -461,8 +461,8 @@ function Home() {
         </h2>
         <div className="home-projects__layout">
           <ProjectCard
-            key={FEATURED_PROJECTS[0].title}
-            project={FEATURED_PROJECTS[0]}
+            key={FEATURED_PROJECTS[1].title}
+            project={FEATURED_PROJECTS[1]}
             variant="featured"
           />
           <ul className="home-projects__grid">
@@ -473,8 +473,8 @@ function Home() {
             ))}
           </ul>
           <ProjectCard
-            key={FEATURED_PROJECTS[1].title}
-            project={FEATURED_PROJECTS[1]}
+            key={FEATURED_PROJECTS[0].title}
+            project={FEATURED_PROJECTS[0]}
             variant="featured"
           />
         </div>

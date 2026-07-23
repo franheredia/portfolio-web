@@ -1,11 +1,7 @@
 @use "../styles/constants.scss" as *;
 
 .home-hero {
-  margin: 2.5rem 0 2.5rem 0;
-
   &__layout {
-    display: grid;
-    grid-template-columns: 1fr;
     align-items: center;
     gap: 1rem;
     max-width: $layout-max-width;
@@ -15,10 +11,10 @@
   &__card {
     width: 100%;
     max-width: 360px;
-    margin: 0 auto;
-    padding: 1.25rem;
+    margin: 0 auto 2.5rem auto;
+    padding: 1.5rem;
     color: #1a1a2e;
-    background: #f7f8f9;
+    background: #F1F2F3;
     border-radius: $radius-xl;
     box-shadow: $shadow-hero-card;
   }
@@ -29,11 +25,12 @@
 
   &__photo {
     display: block;
-    width: 100%;
+    width: 80%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
     border-radius: $radius-lg;
     background-color: $color-accent-soft;
+    margin: 0 auto;
 
     &--fallback {
       min-height: 280px;
@@ -103,10 +100,9 @@
 
   &__title {
     margin: 0;
-    font-size: clamp(2.75rem, 8vw, 5.5rem);
+    font-size: 2.5rem;
     font-weight: 800;
     line-height: 0.95;
-    letter-spacing: -0.02em;
     text-transform: uppercase;
   }
 
@@ -132,15 +128,16 @@
 
   &__stats {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
     width: 100%;
     max-width: 28rem;
     margin: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
   }
 
   &__stat {
     margin: 0;
+    text-align: center;
   }
 
   &__stat-value {
@@ -196,18 +193,14 @@
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.65;
-    color: rgb(255 255 255 / 85%);
-  }
-
-  @media (min-width: $breakpoint-sm) {
-    &__stats {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
+    color: #F1F2F3;
   }
 
   @media (min-width: $breakpoint-lg) {
+    margin: 2.5rem 0 2.5rem 0;
+
     &__layout {
+      display: grid;
       grid-template-columns: minmax(260px, 320px) 1fr;
       gap: 3rem;
     }
@@ -234,6 +227,10 @@
     &__cta-cards {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+
+    &__photo {
+      width: 100%;
+    }
   }
 }
 
@@ -242,7 +239,7 @@
   margin: 0 auto 2.5rem auto;
 
   &__title {
-    margin: 0 0 1.5rem;
+    margin: 1.5rem 0;
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 700;
     color: $color-text;
@@ -390,7 +387,17 @@
     }
   }
 
+  @media (min-width: $breakpoint-sm) {
+    &__card {
+      padding: 2rem 1.5rem;
+    }
+  }
+
   @media (min-width: $breakpoint-lg) {
+    &__card {
+      padding: 1.5rem;
+    }
+
     &__grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
       column-gap: 1.5rem;
