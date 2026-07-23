@@ -23,11 +23,23 @@ import {
 import linkedInSvg from "@/assets/linkedIn.svg?raw";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
-import { BrainCog, RefreshCcwDot } from "lucide-react";
+import {
+  BookOpenCheck,
+  NotebookPen,
+  MessageCircleCheck,
+  ArrowBigUpDash,
+  FastForward,
+  HeartHandshake,
+  BrainCog,
+  Smile,
+  RefreshCcwDot,
+  UsersRound,
+} from "lucide-react";
 
 const HERO = {
-  name: "Fran Heredia",
-  tagline: "Desarrollador Freelance para Tiendanube y Software a Medida",
+  name: "Franco Heredia",
+  tagline:
+    "Desarrollador Frontend, líder de equipos. Técnico en Programación y Licenciado en Teatro",
   titleLine1: "DESARROLLADOR",
   titleLine2: "FREELANCE",
   description:
@@ -59,7 +71,17 @@ const SOCIAL_LINKS: {
   { href: "#", label: "LinkedIn", icon: "linkedin" },
 ];
 
-const SKILLS: { name: string; Icon: typeof SiReact }[] = [
+const SOFT_SKILLS: { name: string; Icon: typeof SiReact }[] = [
+  { name: "Conocimientos pedagogicos", Icon: BookOpenCheck },
+  { name: "Gestión de equipos", Icon: NotebookPen },
+  { name: "Excelente comunicación", Icon: MessageCircleCheck },
+  { name: "Autodidacta", Icon: ArrowBigUpDash },
+  { name: "Rápida solución de problemas", Icon: FastForward },
+  { name: "Carisma", Icon: Smile },
+  { name: "Liderazgo", Icon: UsersRound },
+  { name: "Trabajo en equipo", Icon: HeartHandshake },
+];
+const TECHNICAL_SKILLS: { name: string; Icon: typeof SiReact }[] = [
   { name: "AngularJS", Icon: SiAngular },
   { name: "Bootstrap", Icon: SiBootstrap },
   { name: "ChakraUI", Icon: SiChakraui },
@@ -198,13 +220,7 @@ function HeroCTA({ wording, link }: { wording: string; link: string }) {
   );
 }
 
-function SkillCard({
-  name,
-  Icon,
-}: {
-  name: string;
-  Icon: typeof SiReact;
-}) {
+function SkillCard({ name, Icon }: { name: string; Icon: typeof SiReact }) {
   return (
     <li className="home-skills__item">
       <Icon size={40} color="currentColor" aria-hidden />
@@ -268,15 +284,23 @@ function Home() {
         </p>
       </section>
       <section className="home-skills" aria-labelledby="home-skills-title">
-      <h2 id="home-skills-title" className="home-skills__title">
-        Habilidades técnicas
-      </h2>
-      <ul className="home-skills__grid">
-        {SKILLS.map(({ name, Icon }) => (
-          <SkillCard key={name} name={name} Icon={Icon} />
-        ))}
-      </ul>
-    </section>
+        <h2 id="home-skills-title" className="home-skills__title">
+          Habilidades blandas
+        </h2>
+        <ul className="home-skills__grid">
+          {SOFT_SKILLS.map(({ name, Icon }) => (
+            <SkillCard key={name} name={name} Icon={Icon} />
+          ))}
+        </ul>
+        <h2 id="home-skills-title" className="home-skills__title">
+          Habilidades técnicas
+        </h2>
+        <ul className="home-skills__grid">
+          {TECHNICAL_SKILLS.map(({ name, Icon }) => (
+            <SkillCard key={name} name={name} Icon={Icon} />
+          ))}
+        </ul>
+      </section>
     </>
   );
 }
