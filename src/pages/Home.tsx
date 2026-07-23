@@ -8,7 +8,6 @@ import {
   SiDjango,
   SiGit,
   SiHtml5,
-  SiInstagram,
   SiJavascript,
   SiJira,
   SiJquery,
@@ -260,16 +259,14 @@ function ProfilePhoto() {
 
 function ProfileCard() {
   return (
-    <aside className="home-hero__profile" aria-label="Perfil">
-      <div className="home-hero__card">
-        <figure className="home-hero__figure">
-          <ProfilePhoto />
-        </figure>
-        <h2 className="home-hero__name">{HERO.name}</h2>
-        <p className="home-hero__tagline">{HERO.tagline}</p>
-        <SocialLinks />
-      </div>
-    </aside>
+    <div className="home-hero__card">
+      <figure className="home-hero__figure">
+        <ProfilePhoto />
+      </figure>
+      <h2 className="home-hero__name">{HERO.name}</h2>
+      <p className="home-hero__tagline">{HERO.tagline}</p>
+      <SocialLinks />
+    </div>
   );
 }
 
@@ -439,7 +436,7 @@ function ProjectCard({
 function Home() {
   return (
     <>
-      <section className="home-hero" aria-labelledby="home-hero-title">
+      <div className="home-hero" aria-labelledby="home-hero-title">
         <div className="home-hero__layout">
           <ProfileCard />
           <div className="home-hero__content">
@@ -457,8 +454,8 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="home-projects" aria-labelledby="home-projects-title">
+      </div>
+      <div className="home-projects" aria-labelledby="home-projects-title">
         <h2 id="home-projects-title" className="home-projects__title">
           Algunos de los proyectos donde trabajé
         </h2>
@@ -470,7 +467,7 @@ function Home() {
           />
           <ul className="home-projects__grid">
             {PROJECTS.map((project) => (
-              <li key={project.title}>
+              <li key={project.title} className="home-projects__item">
                 <ProjectCard project={project} variant="compact" />
               </li>
             ))}
@@ -481,8 +478,8 @@ function Home() {
             variant="featured"
           />
         </div>
-      </section>
-      <section className="home-skills" aria-labelledby="home-skills-title">
+      </div>
+      <div className="home-skills" aria-labelledby="home-skills-title">
         <h2 id="home-skills-title" className="home-skills__title">
           Habilidades blandas
         </h2>
@@ -491,15 +488,18 @@ function Home() {
             <SkillCard key={name} name={name} Icon={Icon} />
           ))}
         </ul>
-        <h2 id="home-skills-title" className="home-skills__title">
+        <h2 id="home-skills-title-technical" className="home-skills__title">
           Habilidades técnicas
         </h2>
-        <ul className="home-skills__grid">
+        <ul
+          className="home-skills__grid"
+          aria-labelledby="home-skills-title-technical"
+        >
           {TECHNICAL_SKILLS.map(({ name, Icon }) => (
             <SkillCard key={name} name={name} Icon={Icon} />
           ))}
         </ul>
-      </section>
+      </div>
     </>
   );
 }

@@ -1,4 +1,12 @@
 body {
+  margin: 0;
+  padding: 1rem;
   background-color: $color-background;
   color: $color-text;
+}
+
+@media (min-width: $breakpoint-sm) {
+  body {
+    padding: 1rem 2.5rem 2.5rem 2.5rem;
+  }
 }
