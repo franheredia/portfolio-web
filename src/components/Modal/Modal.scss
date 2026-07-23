@@ -1,0 +1,93 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &__backdrop {
+    border: 0;
+    position: absolute;
+    inset: 0;
+    background-color: rgb(3 2 71 / 72%);
+    animation: modal-fade-in 0.2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  &__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 32rem);
+    max-height: min(90vh, 42rem);
+    padding: 1.5rem;
+    overflow: hidden;
+    background-color: #f1f2f3;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-hero-card;
+    animation: modal-panel-in 0.2s ease;
+  }
+
+  &__panel--wide {
+    width: min(100%, 36rem);
+  }
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    color: $color-background;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: $color-accent;
+      background-color: $color-accent-soft;
+      border-color: $color-accent;
+      outline: none;
+    }
+  }
+
+  &__body {
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

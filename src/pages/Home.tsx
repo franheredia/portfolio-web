@@ -23,7 +23,6 @@ import {
 } from "@icons-pack/react-simple-icons";
 import linkedInSvg from "@/assets/linkedIn.svg?raw";
 import "./Home.scss";
-import { useNavigate } from "react-router-dom";
 import {
   ArrowBigUpDash,
   ArrowRight,
@@ -38,6 +37,15 @@ import {
   Smile,
   UsersRound,
 } from "lucide-react";
+import { ConfirmDialog } from "@/components/ConfirmDialog/ConfirmDialog";
+import { ServiceContactModal } from "@/components/ServiceContactModal/ServiceContactModal";
+import {
+  openContactLink,
+  SOCIAL_LINKS,
+  type ContactChannel,
+} from "@/data/contact";
+import { HERO, STATS } from "@/data/hero";
+import { getServiceById, SERVICES } from "@/data/services";
 
 const projectBase = `${import.meta.env.BASE_URL}projects/`;
 
@@ -103,61 +111,13 @@ const PROJECTS: Project[] = [
     href: "https://www.tiendapanichelli.com.ar/",
   },
 ];
-const HERO = {
-  name: "Franco Heredia",
-  tagline:
-    "Desarrollador Full Stack | Especialista en Frontend | Líder de equipos | Técnico en Programación | Licenciado en Teatro",
-  titleLine1: "DESARROLLADOR",
-  titleLine2: "FREELANCE",
-  description:
-    "Técnico en programación y Licenciado en Teatro. Mi experiencia como actor y director me brinda sólidas herramientas de comunicación y trabajo en equipo, que aplico en el ámbito laboral. Puedo aportar robustez, mantenibilidad y escalabilidad al código, y construir activamente un ambiente de trabajo eficiente y disfrutable a través del liderazgo y la gestión de equipos.",
-  imageSrc: "./profile.png",
-  imageAlt: "Foto de perfil de Fran Heredia",
-} as const;
 
-const STATS = [
-  { value: 8, label: "Años de experiencia" },
-  { value: 40, label: "Proyectos completados" },
-  { value: 15, label: "Clientes" },
-] as const;
-
-const HERO_CTA_ITEMS = [
-  {
-    title: "Creación de tiendas onlines para tu negocio",
-    description:
-      "Llevo adelante la creación de tu tienda online. Acompañándote en la elección de la plataforma correcta para tus necesidades y la adquisición de tu dominio. Llevo adelante la puesta en marcha del e-commerce y te explico cómo mantenerlo.",
-    link: "/contact",
-  },
-  {
-    title: "Construcción de software a medida",
-    description:
-      "Construyo software a medida para concretar tus ideas, desde la creación del software hasta la puesta en marcha y mantenimiento. Te asesoro en la elección del mejor stack tecnológico y la planificación a mediano plazo.",
-    link: "/contact",
-  },
-  {
-    title: "Trabajo por proyectos como dev o líder de equipo",
-    description:
-      "Me sumo a tu equipo de trabajo como dev, especialista técnico, o como líder de equipo para llevar adelante los desafíos que tengas.",
-    link: "/contact",
-  },
-] as const;
-
-type SocialIconId = "mail" | "linkedin" | "whatsapp";
+type SocialIconId = "email" | "linkedin" | "whatsapp";
 
 const SOCIAL_ICON_MAP = {
-  mail: Mail,
+  email: Mail,
   whatsapp: SiWhatsapp,
 } as const;
-
-const SOCIAL_LINKS: {
-  href: string;
-  label: string;
-  icon: SocialIconId;
-}[] = [
-  { href: "#", label: "Whatsapp", icon: "whatsapp" },
-  { href: "#", label: "Email", icon: "mail" },
-  { href: "#", label: "LinkedIn", icon: "linkedin" },
-];
 
 const SOFT_SKILLS: { name: string; Icon: typeof SiReact }[] = [
   { name: "Autodidacta", Icon: ArrowBigUpDash },
@@ -206,28 +166,31 @@ function LinkedInIcon() {
   );
 }
 
-function renderSocialIcon(icon: SocialIconId) {
-  if (icon === "linkedin") {
+function renderSocialIcon(channel: SocialIconId) {
+  if (channel === "linkedin") {
     return <LinkedInIcon />;
   }
-  const Icon = SOCIAL_ICON_MAP[icon];
+  const Icon = SOCIAL_ICON_MAP[channel];
   return <Icon size={20} color="currentColor" aria-hidden />;
 }
 
-function SocialLinks() {
+function SocialLinks({
+  onContactClick,
+}: {
+  onContactClick: (channel: ContactChannel) => void;
+}) {
   return (
     <ul className="home-hero__social" aria-label="Redes sociales">
-      {SOCIAL_LINKS.map(({ href, label, icon }) => (
-        <li key={icon}>
-          <a
-            href={href}
+      {SOCIAL_LINKS.map(({ channel, label }) => (
+        <li key={channel}>
+          <button
+            type="button"
             className="home-hero__social-link"
-            target="_blank"
-            rel="noreferrer"
             aria-label={label}
+            onClick={() => onContactClick(channel)}
           >
-            {renderSocialIcon(icon)}
-          </a>
+            {renderSocialIcon(channel)}
+          </button>
         </li>
       ))}
     </ul>
@@ -257,7 +220,11 @@ function ProfilePhoto() {
   );
 }
 
-function ProfileCard() {
+function ProfileCard({
+  onContactClick,
+}: {
+  onContactClick: (channel: ContactChannel) => void;
+}) {
   return (
     <div className="home-hero__card">
       <figure className="home-hero__figure">
@@ -265,7 +232,7 @@ function ProfileCard() {
       </figure>
       <h2 className="home-hero__name">{HERO.name}</h2>
       <p className="home-hero__tagline">{HERO.tagline}</p>
-      <SocialLinks />
+      <SocialLinks onContactClick={onContactClick} />
     </div>
   );
 }
@@ -301,30 +268,28 @@ function HeroStats() {
 
 function HeroCTA({
   title,
-  description,
-  link,
+  summary,
+  onOpen,
 }: {
   title: string;
-  description: string;
-  link: string;
+  summary: string;
+  onOpen: () => void;
 }) {
-  const navigate = useNavigate();
-  const go = () => navigate(link);
   return (
     <div
       role="button"
       tabIndex={0}
       className="home-hero__cta"
-      onClick={go}
+      onClick={onOpen}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          go();
+          onOpen();
         }
       }}
     >
       <h3 className="home-hero__cta-title">{title}</h3>
-      <p className="home-hero__cta-description">{description}</p>
+      <p className="home-hero__cta-description">{summary}</p>
     </div>
   );
 }
@@ -434,21 +399,28 @@ function ProjectCard({
 }
 
 function Home() {
+  const [openServiceId, setOpenServiceId] = useState<string | null>(null);
+  const [pendingContact, setPendingContact] = useState<ContactChannel | null>(
+    null,
+  );
+
+  const openService = openServiceId ? getServiceById(openServiceId) : undefined;
+
   return (
     <>
       <div className="home-hero" aria-labelledby="home-hero-title">
         <div className="home-hero__layout">
-          <ProfileCard />
+          <ProfileCard onContactClick={setPendingContact} />
           <div className="home-hero__content">
             <HeroHeadline />
             <HeroStats />
             <div className="home-hero__cta-cards">
-              {HERO_CTA_ITEMS.map(({ title, description, link }) => (
+              {SERVICES.map((service) => (
                 <HeroCTA
-                  key={title}
-                  title={title}
-                  description={description}
-                  link={link}
+                  key={service.id}
+                  title={service.title}
+                  summary={service.summary}
+                  onOpen={() => setOpenServiceId(service.id)}
                 />
               ))}
             </div>
@@ -500,6 +472,24 @@ function Home() {
           ))}
         </ul>
       </div>
+
+      {openService ? (
+        <ServiceContactModal
+          service={openService}
+          onClose={() => setOpenServiceId(null)}
+        />
+      ) : null}
+
+      {pendingContact ? (
+        <ConfirmDialog
+          channel={pendingContact}
+          onConfirm={() => {
+            openContactLink(pendingContact);
+            setPendingContact(null);
+          }}
+          onCancel={() => setPendingContact(null)}
+        />
+      ) : null}
     </>
   );
 }
