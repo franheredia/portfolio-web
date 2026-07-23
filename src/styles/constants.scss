@@ -1,6 +1,6 @@
 // Constants
 :root {
-  --color-background: #020151;
+  --color-background: #030247;
   --color-text-styled: #7d62a9;
   --color-text: #f1f2f3;
   --color-accent: #ec7198;
@@ -40,11 +40,11 @@ $font-body: var(--font-body);
 $font-heading: var(--font-heading);
 
 // Layout
-$layout-max-width: 72rem;
+$layout-max-width: 80rem;
 
 // Breakpoints (mobile-first: min-width)
-$breakpoint-sm: 521px;
-$breakpoint-lg: 901px;
+$breakpoint-sm: 480px;
+$breakpoint-lg: 1024px;
 
 // Shared effects
 $color-on-accent: #fff;

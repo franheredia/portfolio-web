@@ -62,7 +62,7 @@ const FEATURED_PROJECTS: Project[] = [
       "SCSS",
     ],
     imageSrc: `${projectBase}kilimo.png`,
-    href: "#",
+    href: "https://www.kilimo.com/",
   },
   {
     title: "Página oficial - Toyota Argentina",
@@ -76,7 +76,7 @@ const FEATURED_PROJECTS: Project[] = [
       "Google Tag Manager",
     ],
     imageSrc: `${projectBase}toyota.png`,
-    href: "#",
+    href: "https://e.toyota.com.ar/inventory",
   },
 ];
 
@@ -86,31 +86,31 @@ const PROJECTS: Project[] = [
     year: "2026",
     tags: ["ReactJS", "SCSS", "Vercel", "React Router"],
     imageSrc: `${projectBase}fusion.png`,
-    href: "#",
+    href: "https://www.distribuidorafusion.com.ar/",
   },
   {
     title: "Mantenimiento y desarrollo - Cresciente Teoría Musical",
     year: "2024",
-    tags: ["Wordpress", "PHP", "MySQL", "Elementor", "WooCommerce"],
+    tags: ["Wordpress", "PHP", "MySQL", "WooCommerce"],
     imageSrc: `${projectBase}cresciente.png`,
-    href: "#",
+    href: "https://www.cresciente.net/",
   },
   {
     title: "Eccomerce con Tienda Nube - Corralón Panichelli",
     year: "2026",
     tags: ["Tienda Nube", "Asesoría"],
     imageSrc: `${projectBase}panichelli.png`,
-    href: "#",
+    href: "https://www.tiendapanichelli.com.ar/",
   },
 ];
 const HERO = {
   name: "Franco Heredia",
   tagline:
-    "Desarrollador Frontend, líder de equipos. Técnico en Programación y Licenciado en Teatro",
+    "Desarrollador Full Stack | Especialista en Frontend | Líder de equipos | Técnico en Programación | Licenciado en Teatro",
   titleLine1: "DESARROLLADOR",
   titleLine2: "FREELANCE",
   description:
-    "Apasionado por crear experiencias intuitivas y útiles. Especializado en transformar ideas en productos bien hechos, desde tiendas online hasta software a medida.",
+    "Técnico en programación y Licenciado en Teatro. Mi experiencia como actor y director me brinda sólidas herramientas de comunicación y trabajo en equipo, que aplico en el ámbito laboral. Puedo aportar robustez, mantenibilidad y escalabilidad al código, y construir activamente un ambiente de trabajo eficiente y disfrutable a través del liderazgo y la gestión de equipos.",
   imageSrc: "./profile.png",
   imageAlt: "Foto de perfil de Fran Heredia",
 } as const;
