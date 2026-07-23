@@ -3,6 +3,8 @@ import {
   SiAngular,
   SiBootstrap,
   SiChakraui,
+  SiClickup,
+  SiCursor,
   SiDjango,
   SiGit,
   SiHtml5,
@@ -10,31 +12,32 @@ import {
   SiJavascript,
   SiJira,
   SiJquery,
-  SiCursor,
   SiPython,
   SiReact,
   SiSass,
+  SiSupabase,
   SiSvelte,
   SiTailwindcss,
   SiTypescript,
-  SiClickup,
-  SiX,
+  SiWordpress,
+  SiWhatsapp,
 } from "@icons-pack/react-simple-icons";
 import linkedInSvg from "@/assets/linkedIn.svg?raw";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
 import {
-  BookOpenCheck,
-  NotebookPen,
-  MessageCircleCheck,
   ArrowBigUpDash,
+  ArrowRight,
+  BookOpenCheck,
+  BrainCog,
   FastForward,
   HeartHandshake,
-  BrainCog,
-  Smile,
+  Mail,
+  MessageCircleCheck,
+  NotebookPen,
   RefreshCcwDot,
+  Smile,
   UsersRound,
-  ArrowRight,
 } from "lucide-react";
 
 const projectBase = `${import.meta.env.BASE_URL}projects/`;
@@ -57,7 +60,7 @@ const FEATURED_PROJECTS: Project[] = [
       "Lider de delivery de software",
       "AngularJS",
       "Cursor AI",
-      "SCSS"
+      "SCSS",
     ],
     imageSrc: `${projectBase}kilimo.png`,
     href: "#",
@@ -119,11 +122,32 @@ const STATS = [
   { value: 15, label: "Clientes" },
 ] as const;
 
-type SocialIconId = "instagram" | "x" | "linkedin";
+const HERO_CTA_ITEMS = [
+  {
+    title: "Creación de tiendas onlines para tu negocio",
+    description:
+      "Llevo adelante la creación de tu tienda online. Acompañándote en la elección de la plataforma correcta para tus necesidades y la adquisición de tu dominio. Llevo adelante la puesta en marcha del e-commerce y te explico cómo mantenerlo.",
+    link: "/contact",
+  },
+  {
+    title: "Construcción de software a medida",
+    description:
+      "Construyo software a medida para concretar tus ideas, desde la creación del software hasta la puesta en marcha y mantenimiento. Te asesoro en la elección del mejor stack tecnológico y la planificación a mediano plazo.",
+    link: "/contact",
+  },
+  {
+    title: "Trabajo por proyectos como dev o líder de equipo",
+    description:
+      "Me sumo a tu equipo de trabajo como dev, especialista técnico, o como líder de equipo para llevar adelante los desafíos que tengas.",
+    link: "/contact",
+  },
+] as const;
+
+type SocialIconId = "mail" | "linkedin" | "whatsapp";
 
 const SOCIAL_ICON_MAP = {
-  instagram: SiInstagram,
-  x: SiX,
+  mail: Mail,
+  whatsapp: SiWhatsapp,
 } as const;
 
 const SOCIAL_LINKS: {
@@ -131,19 +155,19 @@ const SOCIAL_LINKS: {
   label: string;
   icon: SocialIconId;
 }[] = [
-  { href: "#", label: "X", icon: "x" },
-  { href: "#", label: "Instagram", icon: "instagram" },
+  { href: "#", label: "Whatsapp", icon: "whatsapp" },
+  { href: "#", label: "Email", icon: "mail" },
   { href: "#", label: "LinkedIn", icon: "linkedin" },
 ];
 
 const SOFT_SKILLS: { name: string; Icon: typeof SiReact }[] = [
-  { name: "Conocimientos pedagogicos", Icon: BookOpenCheck },
-  { name: "Gestión de equipos", Icon: NotebookPen },
-  { name: "Excelente comunicación", Icon: MessageCircleCheck },
   { name: "Autodidacta", Icon: ArrowBigUpDash },
-  { name: "Rápida solución de problemas", Icon: FastForward },
   { name: "Carisma", Icon: Smile },
+  { name: "Conocimientos pedagogicos", Icon: BookOpenCheck },
+  { name: "Excelente comunicación", Icon: MessageCircleCheck },
+  { name: "Gestión de equipos", Icon: NotebookPen },
   { name: "Liderazgo", Icon: UsersRound },
+  { name: "Rápida solución de problemas", Icon: FastForward },
   { name: "Trabajo en equipo", Icon: HeartHandshake },
 ];
 const TECHNICAL_SKILLS: { name: string; Icon: typeof SiReact }[] = [
@@ -165,10 +189,12 @@ const TECHNICAL_SKILLS: { name: string; Icon: typeof SiReact }[] = [
   { name: "ReactJs", Icon: SiReact },
   { name: "Scrum", Icon: RefreshCcwDot },
   { name: "SCSS", Icon: SiSass },
+  { name: "Supabase", Icon: SiSupabase },
   { name: "Svelte", Icon: SiSvelte },
   { name: "SvelteKit", Icon: SiSvelte },
   { name: "Tailwind", Icon: SiTailwindcss },
   { name: "Typescript", Icon: SiTypescript },
+  { name: "Wordpress", Icon: SiWordpress },
 ];
 
 function LinkedInIcon() {
@@ -276,11 +302,32 @@ function HeroStats() {
   );
 }
 
-function HeroCTA({ wording, link }: { wording: string; link: string }) {
+function HeroCTA({
+  title,
+  description,
+  link,
+}: {
+  title: string;
+  description: string;
+  link: string;
+}) {
   const navigate = useNavigate();
+  const go = () => navigate(link);
   return (
-    <div onClick={() => navigate(link)} className="home-hero__cta">
-      {wording}
+    <div
+      role="button"
+      tabIndex={0}
+      className="home-hero__cta"
+      onClick={go}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          go();
+        }
+      }}
+    >
+      <h3 className="home-hero__cta-title">{title}</h3>
+      <p className="home-hero__cta-description">{description}</p>
     </div>
   );
 }
@@ -399,67 +446,17 @@ function Home() {
             <HeroHeadline />
             <HeroStats />
             <div className="home-hero__cta-cards">
-              <HeroCTA
-                wording="Quiero crear una tienda online para mi negocio"
-                link="/contact"
-              />
-              <HeroCTA
-                wording="Quiero crear mi software a medida"
-                link="/contact"
-              />
-              <HeroCTA
-                wording="Quiero que trabajes en mi proyecto"
-                link="/contact"
-              />
+              {HERO_CTA_ITEMS.map(({ title, description, link }) => (
+                <HeroCTA
+                  key={title}
+                  title={title}
+                  description={description}
+                  link={link}
+                />
+              ))}
             </div>
           </div>
         </div>
-      </section>
-      <section className="home-services">
-        <h2>Mis servicios</h2>
-        <h3 className="home-services__subtitle">
-          Creación de tiendas onlines para tu negocio
-        </h3>
-        <p className="home-services__description">
-          Llevo adelante la creación de tu tienda online. Acompañandote en la
-          elección de la plataforma correcta para tus necesidades y la
-          adquisición de tu dominio. Llevo adelante la puesta en marcha del
-          eccommerce y te explico cómo mantenerlo.
-        </p>
-        <h3 className="home-services__subtitle">
-          Construcción de software a medida
-        </h3>
-        <p className="home-services__description">
-          Construyo software a medida para concretar tus ideas, desde la
-          creación del software hasta la puesta en marcha y mantenimiento. Te
-          asesoro en la elección del mejor stack tecnológico y la planificación
-          a mediano plazo.
-        </p>
-        <h3 className="home-services__subtitle">
-          Trabajo por proyectos como dev o líder de equipo
-        </h3>
-        <p className="home-services__description">
-          Me sumo a tu equipo de trabajo como dev, especialista técnico, o como
-          líder de equipo para llevar adelante los desafíos que tengas.
-        </p>
-      </section>
-      <section className="home-skills" aria-labelledby="home-skills-title">
-        <h2 id="home-skills-title" className="home-skills__title">
-          Habilidades blandas
-        </h2>
-        <ul className="home-skills__grid">
-          {SOFT_SKILLS.map(({ name, Icon }) => (
-            <SkillCard key={name} name={name} Icon={Icon} />
-          ))}
-        </ul>
-        <h2 id="home-skills-title" className="home-skills__title">
-          Habilidades técnicas
-        </h2>
-        <ul className="home-skills__grid">
-          {TECHNICAL_SKILLS.map(({ name, Icon }) => (
-            <SkillCard key={name} name={name} Icon={Icon} />
-          ))}
-        </ul>
       </section>
       <section className="home-projects" aria-labelledby="home-projects-title">
         <h2 id="home-projects-title" className="home-projects__title">
@@ -484,6 +481,24 @@ function Home() {
             variant="featured"
           />
         </div>
+      </section>
+      <section className="home-skills" aria-labelledby="home-skills-title">
+        <h2 id="home-skills-title" className="home-skills__title">
+          Habilidades blandas
+        </h2>
+        <ul className="home-skills__grid">
+          {SOFT_SKILLS.map(({ name, Icon }) => (
+            <SkillCard key={name} name={name} Icon={Icon} />
+          ))}
+        </ul>
+        <h2 id="home-skills-title" className="home-skills__title">
+          Habilidades técnicas
+        </h2>
+        <ul className="home-skills__grid">
+          {TECHNICAL_SKILLS.map(({ name, Icon }) => (
+            <SkillCard key={name} name={name} Icon={Icon} />
+          ))}
+        </ul>
       </section>
     </>
   );

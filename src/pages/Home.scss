@@ -181,6 +181,10 @@
     width: 100%;
     max-width: 28rem;
   }
+
+  .home-hero__cta-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 520px) {
@@ -191,18 +195,21 @@
 }
 
 .home-hero__cta-cards {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
 }
 
 .home-hero__cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
   background-color: $color-accent;
   border-radius: $radius-sm;
-  padding: 100px 20px;
+  padding: 1.5rem 1rem;
   color: #fff;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-decoration: none;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -210,6 +217,20 @@
   &:hover {
     background-color: $color-accent-strong;
   }
+}
+
+.home-hero__cta-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.home-hero__cta-description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgb(255 255 255 / 85%);
 }
 
 .home-skills {
@@ -228,7 +249,7 @@
 
 .home-skills__grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 1rem;
   margin: 0;
   padding: 0;
@@ -260,13 +281,13 @@
 
 @media (max-width: 900px) {
   .home-skills__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 520px) {
   .home-skills__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
@@ -364,7 +385,6 @@
 }
 
 .home-projects__description {
-  margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
   color: $color-text-muted;
