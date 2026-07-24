@@ -4,7 +4,7 @@
   border: 1px solid $color-border-subtle;
   border-radius: $radius-md;
   box-shadow: $shadow-elevated;
-  transition: $transition-shadow;
+  transition: $transition-shadow, $transition-motion;
 
   &--horizontal {
     display: grid;
@@ -16,6 +16,7 @@
 
   &:hover{
     box-shadow: $shadow-accent;
+    transform: scale(1.01);
   }
 
   &--vertical {
@@ -118,8 +119,8 @@
     &:hover,
     &:focus-visible {
       color: $color-on-accent;
-      border-color: $color-accent-strong;
-      background-color: $color-accent-strong;
+      border-color: $color-accent;
+      background-color: $color-accent;
       outline: none;
       transform: scale(1.1);
     }

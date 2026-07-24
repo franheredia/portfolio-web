@@ -69,8 +69,8 @@
     &:hover,
     &:focus-visible {
       color: $color-on-accent;
-      border-color: $color-accent-strong;
-      background-color: $color-accent-strong;
+      border-color: $color-accent;
+      background-color: $color-accent;
       outline: none;
       transform: scale(1.1);
     }
