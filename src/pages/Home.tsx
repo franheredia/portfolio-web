@@ -28,8 +28,8 @@ function Home() {
         <div className="home-hero__layout">
           <ProfileCard onContactClick={setPendingContact} />
           <div className="home-hero__content">
-            <header className="home-hero__headline">
-              <h1 className="home-hero__title">
+            <header>
+              <h1 id="home-hero-title" className="home-hero__title">
                 <span className="home-hero__title-line home-hero__title-line--primary">
                   {HERO.titleLine1}
                 </span>
@@ -46,7 +46,7 @@ function Home() {
       </section>
 
       <section className="home-projects" aria-labelledby="home-projects-title">
-        <h2 className="home-projects__title">
+        <h2 id="home-projects-title" className="home-projects__title">
           Algunos de los proyectos donde trabajé
         </h2>
         <ul className="home-projects__grid">
@@ -69,7 +69,7 @@ function Home() {
       </section>
 
       <section className="home-skills" aria-labelledby="home-skills-title">
-        <h2 className="home-skills__title">
+        <h2 id="home-skills-title" className="home-skills__title">
           Mis Habilidades
         </h2>
         <h2 className="home-skills__subtitle">
@@ -81,6 +81,7 @@ function Home() {
           ))}
         </ul>
         <h2
+          id="home-skills-title-technical"
           className="home-skills__subtitle"
         >
           Herramientas Técnicas

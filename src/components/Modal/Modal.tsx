@@ -10,7 +10,6 @@ type ModalProps = {
 };
 
 export function Modal({ titleId, onClose, children, wide = false }: ModalProps) {
-  const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const labelId = useId();
 
@@ -43,7 +42,6 @@ export function Modal({ titleId, onClose, children, wide = false }: ModalProps) 
         onClick={onClose}
       />
       <div
-        ref={panelRef}
         className={`modal__panel${wide ? " modal__panel--wide" : ""}`}
         role="dialog"
         aria-modal="true"

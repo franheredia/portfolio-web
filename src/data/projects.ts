@@ -87,7 +87,6 @@ export const PROJECTS: Project[] = [
       "Liderazgo de equipo",
       "Lider de delivery de software",
       "AngularJS",
-      "Cursor AI",
       "SCSS",
     ],
     imageSrc: `${projectBase}kilimo.png`,
