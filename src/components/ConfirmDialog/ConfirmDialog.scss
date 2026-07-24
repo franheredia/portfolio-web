@@ -1,23 +1,22 @@
 .confirm-dialog {
   &__title {
-    margin: 0 2rem 0.75rem 0;
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.3;
     color: $color-on-surface-light;
+    margin: 1rem;
   }
 
   &__channel {
-    margin: 0 0 0.5rem;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: $color-accent;
+    margin-bottom: 0.5rem;
   }
 
   &__question {
-    margin: 0 0 1.5rem;
     font-size: 0.95rem;
     line-height: 1.6;
     color: $color-text-styled;

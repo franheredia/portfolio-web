@@ -2,12 +2,12 @@ export type ContactChannel = "whatsapp" | "email" | "linkedin";
 
 export const CONTACT = {
   whatsapp: {
-    display: "+54 9 11 0000-0000",
-    href: "https://wa.me/5491100000000",
+    display: "+54 9 351 2292543",
+    href: "https://wa.me/+5493512292543",
   },
   email: {
-    display: "fran@ejemplo.com",
-    href: "mailto:fran@ejemplo.com",
+    display: "franheredia.ov@gmail.com",
+    href: "mailto:franheredia.ov@gmail.com",
   },
   linkedin: {
     display: "linkedin.com/in/franheredia",

@@ -25,13 +25,13 @@ export function ConfirmDialog({
   return (
     <Modal titleId={TITLE_ID} onClose={onCancel}>
       <div className="confirm-dialog">
-        <p className="confirm-dialog__channel">{channelLabel}</p>
+        <p className="confirm-dialog__channel">Contáctame a través de {channelLabel}</p>
+        <p className="confirm-dialog__question">
+          Al precionar "Continuar", serás redirigido a {channelLabel}
+        </p>
         <h2 id={TITLE_ID} className="confirm-dialog__title">
           {display}
         </h2>
-        <p className="confirm-dialog__question">
-          ¿Querés abrir {channelLabel}?
-        </p>
         <div className="confirm-dialog__actions">
           <button
             type="button"

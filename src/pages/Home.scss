@@ -1,5 +1,13 @@
 @use "../styles/constants.scss" as *;
 
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  text-align: center;
+}
+
 .home-hero {
   &__layout {
     align-items: center;
@@ -99,8 +107,8 @@
   margin: 0 auto 2.5rem auto;
 
   &__title {
-    margin: 1.5rem 0;
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin: 0 0 1.5rem 0;
+    font-size: 2rem;
     font-weight: 700;
     color: $color-text;
     text-align: center;
@@ -152,10 +160,17 @@
   margin: 0 auto;
 
   &__title {
-    margin: 0 0 1.5rem;
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin: 0 0 1.5rem 0;
+    font-size: 2rem;
     font-weight: 700;
-    color: $color-text;
+    text-align: center;
+  }
+  
+  &__subtitle {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-text-styled;
     text-align: center;
   }
 

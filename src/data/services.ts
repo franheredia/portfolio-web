@@ -3,54 +3,48 @@ export type Service = {
   title: string;
   summary: string;
   processSteps: string[];
-  nextSteps: string;
 };
 
 export const SERVICES: Service[] = [
   {
     id: "tiendas-online",
-    title: "Creación de tiendas onlines para tu negocio",
+    title: "Creemos juntos la tienda web de tu negocio",
     summary:
-      "Llevo adelante la creación de tu tienda online. Acompañándote en la elección de la plataforma correcta para tus necesidades y la adquisición de tu dominio. Llevo adelante la puesta en marcha del e-commerce y te explico cómo mantenerlo.",
+      "Si buscás abrirte a la venta online de manera ágil.",
     processSteps: [
-      "Charla inicial para entender tu negocio, productos y objetivos.",
-      "Elección de la plataforma adecuada y registro del dominio.",
-      "Armado y configuración del e-commerce (catálogo, pagos y envíos).",
-      "Capacitación para que puedas mantener y actualizar tu tienda.",
-      "Lanzamiento y acompañamiento en los primeros pasos.",
+      "1. Charla inicial para entender tu negocio, sus productos y tus objetivos.",
+      "2. Te ayudo a elegir la plataforma adecuada y a registrar tu dominio.",
+      "3. Armo y configuro el e-commerce (catálogo, pagos, gestión de stock, etc.).",
+      "4. Charla de capacitación para que puedas mantener y actualizar la tienda por tu cuenta.",
+      "5. Lanzamiento y acompañamiento en tus primeros pasos.",
     ],
-    nextSteps:
-      "Escribime por WhatsApp, email o LinkedIn contándome qué vendés y en qué etapa está tu negocio.",
   },
   {
     id: "software-a-medida",
-    title: "Construcción de software a medida",
+    title: "Construyamos software a medida de tu necesidad",
     summary:
-      "Construyo software a medida para concretar tus ideas, desde la creación del software hasta la puesta en marcha y mantenimiento. Te asesoro en la elección del mejor stack tecnológico y la planificación a mediano plazo.",
+      "Si querés una solución tecnológica específica para tu proyecto.",
     processSteps: [
-      "Relevamiento de la idea, usuarios y restricciones del proyecto.",
-      "Propuesta técnica con alcance, stack y planificación.",
-      "Desarrollo por iteraciones con feedback continuo.",
-      "Deploy, pruebas y puesta en producción.",
-      "Soporte, mantenimiento y evolución del producto.",
+      "1. Relevamiento de la idea que tenés. Reconocemos usuarios y restricciones del proyecto.",
+      "2. Propuesta técnica con alcance, stack tecnológico y estimación de tiempo.",
+      "3. Desarrollo por iteraciones con feedback continuo para ir ajustando la solución a tus necesidades.",
+      "4. Lanzamiento, pruebas y puesta en producción del software.",
+      "5. Documentación del software para que tengas autonomía en el mantenimiento y evolución.",
+      "6. Soporte durante la primera etapa del proyecto, y coordinación de posibles planes a futuro.",
     ],
-    nextSteps:
-      "Escribime tu idea, plazos y restricciones para coordinar una charla sin compromiso.",
   },
   {
     id: "dev-o-lider",
-    title: "Trabajo por proyectos como dev o líder de equipo",
+    title: "Sumame a tu equipo",
     summary:
-      "Me sumo a tu equipo de trabajo como dev, especialista técnico, o como líder de equipo para llevar adelante los desafíos que tengas.",
+      "Si querés agregar un profesional como especialista, dev o líder de equipo para llevar adelante los desafíos que tengas.",
     processSteps: [
-      "Entender el contexto del equipo, el producto y los objetivos.",
-      "Definir rol, entregables y forma de trabajo.",
-      "Integración al flujo existente (reuniones, herramientas, ritmo de entrega).",
-      "Acompañamiento técnico o de liderazgo según lo acordado.",
-      "Cierre del proyecto o continuidad en el equipo.",
+      "1. Charla para conocernos y entender el contexto del equipo, el proyecto y los objetivos.",
+      "2. Definimos el rol desde el que puedo aportar valor, el esquema de trabajo y los entregables para llevar adelante el proyecto.",
+      "3. Me integro con contexto al flujo existente (reuniones, herramientas, ritmo de entrega) para que el equipo pueda continuar trabajando sin interrupciones.",
+      "4. Llevamos adelante el proyecto según lo acordado, con feedback continuo para ir ajustando la solución a tus necesidades.",
+      "5. Al cierre del proyecto, nos juntamos para evaluar el éxito del mismo y definir posibles planes a futuro.",
     ],
-    nextSteps:
-      "Contame el proyecto, el stack y si buscás un dev o liderazgo de equipo.",
   },
 ];
 

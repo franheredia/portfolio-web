@@ -46,8 +46,8 @@ export const HERO = {
 
 export const STATS = [
   { value: 8, label: "Años de experiencia" },
-  { value: 40, label: "Proyectos completados" },
-  { value: 15, label: "Clientes" },
+  { value: 12, label: "Proyectos completados" },
+  { value: 10, label: "Clientes satisfechos" },
 ] as const;
 
 export const SOFT_SKILLS: { name: string; Icon: typeof SiReact }[] = [

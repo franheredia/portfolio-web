@@ -23,13 +23,13 @@ function Home() {
   const openService = openServiceId ? getServiceById(openServiceId) : undefined;
 
   return (
-    <>
+    <div className="home-container">
       <section className="home-hero" aria-labelledby="home-hero-title">
         <div className="home-hero__layout">
           <ProfileCard onContactClick={setPendingContact} />
           <div className="home-hero__content">
             <header className="home-hero__headline">
-              <h1 className="home-hero__title" id="home-hero-title">
+              <h1 className="home-hero__title">
                 <span className="home-hero__title-line home-hero__title-line--primary">
                   {HERO.titleLine1}
                 </span>
@@ -46,7 +46,7 @@ function Home() {
       </section>
 
       <section className="home-projects" aria-labelledby="home-projects-title">
-        <h2 id="home-projects-title" className="home-projects__title">
+        <h2 className="home-projects__title">
           Algunos de los proyectos donde trabajé
         </h2>
         <ul className="home-projects__grid">
@@ -69,8 +69,11 @@ function Home() {
       </section>
 
       <section className="home-skills" aria-labelledby="home-skills-title">
-        <h2 id="home-skills-title" className="home-skills__title">
-          Habilidades blandas
+        <h2 className="home-skills__title">
+          Mis Habilidades
+        </h2>
+        <h2 className="home-skills__subtitle">
+          Herramientas Socioculturales
         </h2>
         <ul className="home-skills__grid">
           {SOFT_SKILLS.map(({ name, Icon }) => (
@@ -78,10 +81,9 @@ function Home() {
           ))}
         </ul>
         <h2
-          id="home-skills-title-technical"
-          className="home-skills__title"
+          className="home-skills__subtitle"
         >
-          Habilidades técnicas
+          Herramientas Técnicas
         </h2>
         <ul
           className="home-skills__grid"
@@ -96,6 +98,7 @@ function Home() {
       {openService ? (
         <ServiceContactModal
           service={openService}
+          rowMode={isLg}
           onClose={() => setOpenServiceId(null)}
         />
       ) : null}
@@ -110,7 +113,7 @@ function Home() {
           onCancel={() => setPendingContact(null)}
         />
       ) : null}
-    </>
+    </div>
   );
 }
 
