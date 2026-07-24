@@ -36,10 +36,7 @@
     font-weight: 600;
     cursor: pointer;
     border-radius: $radius-sm;
-    transition:
-      color 0.2s ease,
-      background-color 0.2s ease,
-      border-color 0.2s ease;
+    transition: $transition-colors;
 
     &--secondary {
       color: $color-accent;

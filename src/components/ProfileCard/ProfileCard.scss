@@ -63,10 +63,7 @@
     text-decoration: none;
     border: 2px solid $color-accent;
     border-radius: 50%;
-    transition:
-      color 0.2s ease,
-      border-color 0.2s ease,
-      background-color 0.2s ease;
+    transition: $transition-motion, $transition-colors;
 
     &:hover,
     &:focus-visible {
@@ -74,6 +71,7 @@
       border-color: $color-accent-strong;
       background-color: $color-accent-strong;
       outline: none;
+      transform: scale(1.1);
     }
   }
 

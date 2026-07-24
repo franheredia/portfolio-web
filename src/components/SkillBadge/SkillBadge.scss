@@ -11,6 +11,7 @@
   border: 1px solid $color-border-subtle;
   border-radius: $radius-md;
   box-shadow: $shadow-elevated;
+  transition: $transition-motion;
 
   &__label {
     font-size: 0.75rem;
@@ -18,5 +19,9 @@
     line-height: 1.2;
     text-align: center;
     text-wrap: balance;
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 }

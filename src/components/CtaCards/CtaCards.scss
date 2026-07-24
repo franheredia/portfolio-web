@@ -14,10 +14,11 @@
     cursor: pointer;
     background-color: $color-accent;
     border-radius: $radius-sm;
-    transition: background-color 0.3s ease;
+    transition: $transition-motion, $transition-colors;
 
     &:hover {
       background-color: $color-accent-strong;
+      transform: scale(1.05);
     }
   }
 
