@@ -68,10 +68,12 @@ export function ProjectCard({ project, format }: ProjectCardProps) {
       <ProjectImage src={project.imageSrc} title={project.title} />
       <div className="project-card__body">
         <h3 className="project-card__name">{project.title}</h3>
-        {project.description ? (
-          <p className="project-card__description">{project.description}</p>
-        ) : null}
         <ProjectTags tags={project.tags} />
+        <div className="project-card__description">
+          {project.description?.map((description) => (
+            <p key={description}>{description}</p>
+          ))}
+        </div>
         <footer className="project-card__footer">
           <span className="project-card__year">{project.year}</span>
           <ProjectCardLink href={project.href} />

@@ -59,10 +59,12 @@
     font-size: 0.95rem;
     line-height: 1.6;
     color: $color-text-styled;
+    text-align: left;
   }
 
   &__tags {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin: 0;

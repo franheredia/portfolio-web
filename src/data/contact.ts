@@ -10,8 +10,8 @@ export const CONTACT = {
     href: "mailto:franheredia.ov@gmail.com",
   },
   linkedin: {
-    display: "linkedin.com/in/franheredia",
-    href: "https://linkedin.com/in/franheredia",
+    display: "linkedin.com/in/francoheredia",
+    href: "https://linkedin.com/in/francoheredia",
   },
 } as const;
 

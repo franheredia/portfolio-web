@@ -1,19 +1,18 @@
 // Constants
 :root {
   --color-background: #030247;
-  --color-text-styled: #7d62a9;
+  --color-text-styled: #7385d5;
   --color-text: #f1f2f3;
   --color-accent: #ec7198;
   --color-accent-strong: #d45a82;
   --color-accent-soft: #fad4e2;
-  --color-accent-muted: #c97894;
   --color-text-muted: rgb(241 242 243 / 78%);
   --color-text-subtle: rgb(241 242 243 / 55%);
   --color-text-faint: rgb(241 242 243 / 35%);
   --color-surface-elevated: rgb(255 255 255 / 8%);
   --color-surface-light: #f1f2f3;
   --color-on-surface-light: #030247;
-  --color-on-accent: #ffffff;
+  --color-on-accent: #f1f2f3;
   --color-overlay: rgb(3 2 71 / 72%);
   --color-border-subtle: rgb(255 255 255 / 14%);
   --radius-sm: 0.625rem;
@@ -30,7 +29,6 @@ $color-text: var(--color-text);
 $color-accent: var(--color-accent);
 $color-accent-strong: var(--color-accent-strong);
 $color-accent-soft: var(--color-accent-soft);
-$color-accent-muted: var(--color-accent-muted);
 $color-text-styled: var(--color-text-styled);
 $color-text-subtle: var(--color-text-subtle);
 $color-text-faint: var(--color-text-faint);
