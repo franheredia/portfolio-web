@@ -4,6 +4,7 @@
   border: 1px solid $color-border-subtle;
   border-radius: $radius-md;
   box-shadow: $shadow-elevated;
+  transition: $transition-shadow;
 
   &--horizontal {
     display: grid;
@@ -11,6 +12,10 @@
     gap: 1.5rem;
     overflow: hidden;
     border-radius: $radius-lg;
+  }
+
+  &:hover{
+    box-shadow: $shadow-accent;
   }
 
   &--vertical {
@@ -50,14 +55,16 @@
 
   &__name {
     margin: 0;
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: $text-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-sm;
     color: $color-text;
   }
 
   &__description {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: $text-size-sm;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-2xl;
     color: $color-text-styled;
     text-align: left;
   }
@@ -70,12 +77,13 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: $text-size-xs;
   }
 
   &__tag {
     padding: 0.25rem 0.65rem;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: $text-size-xs;
+    font-weight: $font-weight-semibold;
     color: $color-accent;
     border: 2px solid $color-accent;
     border-radius: 9999px;
@@ -90,8 +98,8 @@
   }
 
   &__year {
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: $text-size-sm;
+    font-weight: $font-weight-semibold;
     color: $color-text-subtle;
   }
 

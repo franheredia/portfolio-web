@@ -26,9 +26,10 @@
 
   &__title {
     margin: 0;
-    font-size: 2.25rem;
-    font-weight: 800;
-    line-height: 0.95;
+    font-size: $text-size-3xl;
+    font-weight: $font-weight-black;
+    line-height: $line-height-display;
+    letter-spacing: $letter-spacing-tight;
     text-transform: uppercase;
   }
 
@@ -47,14 +48,15 @@
   &__description {
     max-width: 36rem;
     margin: 1.25rem auto 0;
-    font-size: 1.05rem;
-    line-height: 1.65;
+    font-size: $text-size-md;
+    font-weight: $font-weight-base;
+    line-height: $line-height-2xl;
     color: $color-text-styled;
   }
 
   @media (min-width: $breakpoint-sm) {
     &__title {
-      font-size: 3rem;
+      font-size: $text-size-5xl;
     }
   }
 
@@ -62,14 +64,14 @@
     margin: 1.5rem 0 2.5rem 0;
 
     &__title {
-      font-size: 4rem;
+      font-size: $text-size-6xl;
     }
 
     &__description {
-      font-size: 1.25rem;
       max-width: 100%;
       margin-right: 0;
       margin-left: 0;
+      font-size: $text-size-lg;
     }
 
     &__layout {
@@ -108,8 +110,9 @@
 
   &__title {
     margin: 0 0 1.5rem 0;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: $text-size-3xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-sm;
     color: $color-text;
     text-align: center;
   }
@@ -161,15 +164,17 @@
 
   &__title {
     margin: 0 0 1.5rem 0;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: $text-size-3xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-sm;
     text-align: center;
   }
-  
+
   &__subtitle {
     margin: 0 0 1.5rem 0;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: $text-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-md;
     color: $color-text-styled;
     text-align: center;
   }

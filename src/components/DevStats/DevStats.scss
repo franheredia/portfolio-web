@@ -13,17 +13,17 @@
 
   &__stat-value {
     margin: 0;
-    font-size: clamp(2.5rem, 4vw, 2.75rem);
-    font-weight: 700;
-    line-height: 1;
-    color: $color-text;
+    font-size: $text-size-4xl;
+    font-weight: $font-weight-black;
+    line-height: $line-height-display;
+    color: $color-tinted-white;
   }
 
   &__stat-label {
     margin: 0.5rem 0 0;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-size: $text-size-xs;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-wider;
     text-transform: uppercase;
     color: $color-text-subtle;
   }

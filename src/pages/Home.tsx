@@ -72,26 +72,26 @@ function Home() {
         <h2 id="home-skills-title" className="home-skills__title">
           Mis Habilidades
         </h2>
-        <h2 className="home-skills__subtitle">
+        <h3 className="home-skills__subtitle">
           Herramientas Socioculturales
-        </h2>
+        </h3>
         <ul className="home-skills__grid">
-          {SOFT_SKILLS.map(({ name, Icon }) => (
-            <SkillBadge key={name} name={name} Icon={Icon} />
+          {SOFT_SKILLS.map(({ name, Icon, color }) => (
+            <SkillBadge key={name} name={name} Icon={Icon} color={color} />
           ))}
         </ul>
-        <h2
+        <h3
           id="home-skills-title-technical"
           className="home-skills__subtitle"
         >
           Herramientas Técnicas
-        </h2>
+        </h3>
         <ul
           className="home-skills__grid"
           aria-labelledby="home-skills-title-technical"
         >
-          {TECHNICAL_SKILLS.map(({ name, Icon }) => (
-            <SkillBadge key={name} name={name} Icon={Icon} />
+          {TECHNICAL_SKILLS.map(({ name, Icon, color }) => (
+            <SkillBadge key={name} name={name} Icon={Icon} color={color} />
           ))}
         </ul>
       </section>

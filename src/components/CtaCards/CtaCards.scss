@@ -24,15 +24,16 @@
 
   &__item-title {
     margin: 0 0 0.75rem;
-    font-size: 1.15rem;
-    font-weight: 700;
+    font-size: $text-size-lg;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-md;
     color: $color-on-accent;
   }
 
   &__item-description {
     margin: 0;
-    font-size: 0.9rem;
-    line-height: 1.65;
-    color: $color-surface-light;
+    font-size: $text-size-sm;
+    font-weight: $font-weight-base;
+    line-height: $line-height-2xl;
   }
 }

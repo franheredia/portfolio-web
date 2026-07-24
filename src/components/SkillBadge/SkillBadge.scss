@@ -11,17 +11,25 @@
   border: 1px solid $color-border-subtle;
   border-radius: $radius-md;
   box-shadow: $shadow-elevated;
-  transition: $transition-motion;
+  transition: $transition-motion, $transition-colors, $transition-shadow;
+  user-select: none;
 
   &__label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1.2;
+    font-size: $text-size-xs;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-sm;
+    color: $color-text;
     text-align: center;
     text-wrap: balance;
   }
 
+  &__icon {
+    transition: $transition-colors;
+    color: var(--skill-color);
+  }
+
   &:hover {
     transform: scale(1.05);
+    box-shadow: $shadow-accent;
   }
 }
