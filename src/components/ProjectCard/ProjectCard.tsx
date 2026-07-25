@@ -28,6 +28,7 @@ function ProjectCardLink({ href }: { href: string }) {
       aria-label="Ver proyecto"
       target="_blank"
       rel="noreferrer"
+      onClick={(event) => event.stopPropagation()}
     >
       <ArrowRight size={20} aria-hidden />
     </a>
@@ -64,7 +65,16 @@ export function ProjectCard({ project, format }: ProjectCardProps) {
       : "project-card--vertical";
 
   return (
-    <article className={`project-card ${modifier}`}>
+    <article
+      className={`project-card ${modifier}`}
+      onClick={(event) => {
+        event.currentTarget.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "nearest",
+        });
+      }}
+    >
       <ProjectImage src={project.imageSrc} title={project.title} />
       <div className="project-card__body">
         <h3 className="project-card__name">{project.title}</h3>
