@@ -1,11 +1,26 @@
 @use "../styles/constants.scss" as *;
 
+@keyframes home-hero-cursor-blink {
+  0%, 45% {
+    opacity: 1;
+  }
+
+  55%, 100% {
+    opacity: 0;
+  }
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
   align-items: center;
   text-align: center;
+  padding-bottom: 5rem;
+
+  @media (min-width: $breakpoint-lg) {
+    padding-bottom: 0;
+  }
 }
 
 .home-hero {
@@ -47,6 +62,34 @@
     }
   }
 
+  &__typewriter {
+    display: grid;
+    text-align: center;
+  }
+
+  &__typewriter-ghost {
+    visibility: hidden;
+    grid-area: 1 / 1;
+  }
+
+  &__typewriter-live {
+    grid-area: 1 / 1;
+  }
+
+  &__typewriter-cursor {
+    display: inline-block;
+    margin-left: 0.05em;
+    color: $color-accent;
+    font-weight: $font-weight-base;
+    animation: home-hero-cursor-blink 1.46s step-end infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__typewriter-cursor {
+      display: none;
+    }
+  }
+
   &__description {
     max-width: 36rem;
     margin: 1.25rem auto 0;
@@ -74,6 +117,10 @@
       margin-right: 0;
       margin-left: 0;
       font-size: $text-size-lg;
+    }
+
+    &__typewriter {
+      text-align: left;
     }
 
     &__layout {
@@ -160,9 +207,42 @@
   }
 }
 
+@keyframes home-skills-sweep {
+  0%,
+  100% {
+    opacity: 0.801;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-2.9px);
+  }
+}
+
 .home-skills {
+  position: relative;
   max-width: $layout-max-width;
   margin: 0 auto;
+  overflow: hidden;
+  border-radius: $radius-lg;
+
+  &__sweep {
+    position: absolute;
+    inset: -40% -20%;
+    background: radial-gradient(
+      circle at 30% 50%,
+      rgb(232 90 43 / 8.2%),
+      transparent 55%
+    );
+    pointer-events: none;
+    animation: home-skills-sweep 4.475s ease-in-out infinite alternate;
+  }
+
+  &__inner {
+    position: relative;
+    padding: 0.5rem 0;
+  }
 
   &__title {
     margin: 0 0 2rem 0;
@@ -184,10 +264,24 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 1.08rem;
     margin: 0 0 2.5rem 0;
     padding: 0;
     list-style: none;
+  }
+
+  .skill-badge {
+    cursor: default;
+    background-color: rgb(255 255 255 / 7.4%);
+
+    &:hover {
+      transform: none;
+      box-shadow: $shadow-elevated;
+    }
+
+    &__icon {
+      filter: saturate(0.955);
+    }
   }
 
   @media (min-width: $breakpoint-sm) {
@@ -199,6 +293,12 @@
   @media (min-width: $breakpoint-lg) {
     &__grid {
       grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__sweep {
+      animation: none;
     }
   }
 }

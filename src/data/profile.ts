@@ -35,7 +35,7 @@ import {
 export const HERO = {
   name: "Franco Heredia",
   tagline:
-    "Desarrollador Full Stack | Especialista en Frontend | Líder de equipos | Técnico en Programación | Licenciado en Teatro",
+    "Desarrollador Full Stack | Especialista en Frontend | Líder de equipo | Técnico en Programación | Licenciado en Teatro",
   titleLine1: "DESARROLLADOR",
   titleLine2: "FREELANCE",
   description:
@@ -50,17 +50,27 @@ export const STATS = [
   { value: 10, label: "Clientes satisfechos" },
 ] as const;
 
+
+export const HERO_TYPING_ROLES = [
+  "DESARROLLADOR",
+  "LÍDER DE EQUIPO",
+  "ESPECIALISTA FRONT",
+  "FULL STACK DEV",
+] as const;
+
+export const HERO_TYPING_GHOST = "ESPECIALISTA FRONT";
+
 type Skill = { name: string; Icon: typeof SiReact; color: string };
 
 export const SOFT_SKILLS: Skill[] = [
-  { name: "Autodidacta", Icon: ArrowBigUpDash, color: "#e8af2b" },
-  { name: "Carisma", Icon: Smile, color: "#e8512b" },
-  { name: "Conocimientos pedagogicos", Icon: BookOpenCheck, color: "#9BB0F0" },
-  { name: "Excelente comunicación", Icon: MessageCircleCheck, color: "#36b37e" },
-  { name: "Gestión de equipos", Icon: NotebookPen, color: "#e8512b" },
-  { name: "Liderazgo", Icon: UsersRound, color: "#7EC8E3" },
-  { name: "Rápida solución de problemas", Icon: FastForward, color: "#e8af2b" },
-  { name: "Trabajo en equipo", Icon: HeartHandshake, color: "#2be8c2" },
+  { name: "Autodidacta", Icon: ArrowBigUpDash, color: "#3178C6" },
+  { name: "Carisma", Icon: Smile, color: "#e85a2b" },
+  { name: "Conocimientos pedagogicos", Icon: BookOpenCheck, color: "#7B68EE" },
+  { name: "Excelente comunicación", Icon: MessageCircleCheck, color: "#44B78B" },
+  { name: "Gestión de equipos", Icon: NotebookPen, color: "#06B6D4" },
+  { name: "Liderazgo", Icon: UsersRound, color: "#61DAFB" },
+  { name: "Soluciones ágiles", Icon: FastForward, color: "#7952B3" },
+  { name: "Trabajo en equipo", Icon: HeartHandshake, color: "#1BB2A9" },
 ];
 
 export const TECHNICAL_SKILLS: Skill[] = [
@@ -73,14 +83,14 @@ export const TECHNICAL_SKILLS: Skill[] = [
   { name: "Django", Icon: SiDjango, color: "#44B78B" },
   { name: "GIT", Icon: SiGit, color: "#F03C2E" },
   { name: "HTML", Icon: SiHtml5, color: "#E34F26" },
-  { name: "Inteligencia Artificial", Icon: BrainCog, color: "#762be8" },
+  { name: "Inteligencia Artificial", Icon: BrainCog, color: "#7B68EE" },
   { name: "Javascript", Icon: SiJavascript, color: "#F7DF1E" },
   { name: "Jira", Icon: SiJira, color: "#0052CC" },
   { name: "JQuery", Icon: SiJquery, color: "#0769AD" },
   { name: "Python", Icon: SiPython, color: "#3776AB" },
   { name: "React Native", Icon: SiReact, color: "#61DAFB" },
   { name: "ReactJs", Icon: SiReact, color: "#61DAFB" },
-  { name: "Scrum", Icon: RefreshCcwDot, color: "#36B37E" },
+  { name: "Scrum", Icon: RefreshCcwDot, color: "#e85a2b" },
   { name: "SCSS", Icon: SiSass, color: "#CC6699" },
   { name: "Supabase", Icon: SiSupabase, color: "#3FCF8E" },
   { name: "Svelte", Icon: SiSvelte, color: "#FF3E00" },

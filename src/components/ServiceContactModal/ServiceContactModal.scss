@@ -1,29 +1,38 @@
 .service-contact-modal {
   &__title {
-    margin: 0 1.2rem 1.5rem 1.2rem;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.85rem;
     font-size: $text-size-xl;
     font-weight: $font-weight-bold;
     line-height: $line-height-md;
     color: $color-on-surface-light;
+    text-align: left;
+    border-bottom: 2px solid color-mix(in srgb, $color-accent 35%, transparent);
   }
 
   &__section-title {
-    margin: 0 0 0.75rem;
+    margin: 0 0 1rem;
     font-weight: $font-weight-bold;
     letter-spacing: $letter-spacing-wide;
+    text-align: left;
     text-transform: uppercase;
     color: $color-accent;
   }
 
+  &__steps-container {
+    border-left: 3px solid $color-accent;
+    padding-left: 1rem;
+  }
+
   &__steps {
-    margin: 0 0 1.25rem;
-    padding-left: 0;
-    list-style: none;
-    text-align: center;
+    margin: 0 0 1.5rem;
+    padding-left: 1rem;
+    text-align: left;
     color: $color-on-surface-light;
 
     > li {
       margin-bottom: 0.5rem;
+      padding-left: 0.75rem;
       font-weight: $font-weight-base;
       line-height: $line-height-2xl;
 
@@ -34,10 +43,11 @@
   }
 
   &__contact-title {
-    margin: 0 0 0.75rem;
+    margin: 0 0 0.85rem;
     font-size: $text-size-sm;
     font-weight: $font-weight-bold;
     letter-spacing: $letter-spacing-wide;
+    text-align: left;
     text-transform: uppercase;
     color: $color-on-surface-light;
   }
@@ -47,8 +57,11 @@
     flex-direction: column;
     gap: 0.75rem;
     margin: 0;
-    padding: 0;
+    padding: 1rem;
     list-style: none;
+    background: color-mix(in srgb, $color-background 2.8%, $color-surface-light);
+    border: 1px solid rgb(3 2 71 / 8%);
+    border-radius: $radius-sm;
   }
 
   &__contact-link {
@@ -57,15 +70,21 @@
     justify-content: center;
     gap: 0.85rem;
     padding: 0.5rem 0.85rem;
-    color: $color-on-accent;
+    color: $color-accent;
     text-decoration: none;
-    background-color: $color-accent;
+    background-color: transparent;
     border: 2px solid $color-accent;
     border-radius: $radius-sm;
     transition: $transition-colors;
 
+    &:first-of-type {
+      color: $color-on-accent;
+      background-color: $color-accent;
+    }
+
     &:hover,
     &:focus-visible {
+      color: $color-on-accent;
       background-color: $color-accent-strong;
       border-color: $color-accent-strong;
       outline: none;

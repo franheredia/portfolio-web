@@ -16,7 +16,11 @@
     font-size: $text-size-4xl;
     font-weight: $font-weight-black;
     line-height: $line-height-display;
-    color: $color-tinted-white;
+    color: $color-text;
+  }
+
+  &__stat-value-prefix {
+    color: $color-accent;
   }
 
   &__stat-label {

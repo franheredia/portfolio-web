@@ -1,5 +1,4 @@
 .project-card {
-  cursor: zoom-in;
   padding: 1.25rem;
   background-color: $color-surface-elevated;
   border: 1px solid $color-border-subtle;
@@ -18,11 +17,10 @@
     gap: 1.5rem;
     overflow: hidden;
     border-radius: $radius-lg;
-  }
-
-  &:hover{
-    box-shadow: $shadow-accent;
-    transform: scale(1.01);
+    &:hover {
+      box-shadow: $shadow-accent;
+      transform: scale(1.005);
+    }
   }
 
   &--vertical {
@@ -32,6 +30,10 @@
     gap: 1rem;
     width: 100%;
     min-height: 0;
+    &:hover {
+      box-shadow: $shadow-accent;
+      transform: scale(1.01);
+    }
 
     .project-card__body {
       display: flex;

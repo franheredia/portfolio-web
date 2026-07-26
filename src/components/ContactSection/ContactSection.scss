@@ -1,0 +1,144 @@
+@use "../../styles/constants.scss" as *;
+
+.contact-section {
+  width: 100%;
+  max-width: $layout-max-width;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    background-color: $color-surface-elevated;
+    border: 1px solid $color-border-subtle;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-elevated;
+  }
+
+  &__title {
+    font-size: $text-size-3xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-sm;
+    color: $color-text;
+  }
+
+  &__lead {
+    max-width: 28rem;
+    font-size: $text-size-md;
+    font-weight: $font-weight-base;
+    line-height: $line-height-2xl;
+    color: $color-text-styled;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 28rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font: inherit;
+    cursor: pointer;
+    border: 2px solid $color-accent;
+    border-radius: $radius-sm;
+    transition: $transition-colors, $transition-motion;
+
+    &:hover,
+    &:focus-visible {
+      outline: none;
+      transform: scale(1.02);
+    }
+
+    &--primary {
+      color: $color-on-accent;
+      background-color: $color-accent;
+
+      &:hover,
+      &:focus-visible {
+        background-color: $color-accent-strong;
+        border-color: $color-accent-strong;
+      }
+    }
+
+    &--secondary {
+      color: $color-accent;
+      background-color: transparent;
+
+      &:hover,
+      &:focus-visible {
+        color: $color-on-accent;
+        background-color: $color-accent;
+      }
+    }
+  }
+
+  &__action-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+    text-align: left;
+  }
+
+  &__action-label {
+    font-size: $text-size-xs;
+    font-weight: $font-weight-bold;
+    letter-spacing: $letter-spacing-wider;
+    text-transform: uppercase;
+  }
+
+  &__action-display {
+    font-size: $text-size-sm;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-md;
+    word-break: break-word;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    &__actions {
+      flex-direction: row;
+      max-width: 36rem;
+    }
+
+    &__action {
+      flex: 1;
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    &__panel {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.5rem;
+      text-align: left;
+    }
+
+    &__lead {
+      flex: 1 1 16rem;
+      max-width: none;
+      margin-right: 1.5rem;
+    }
+
+    &__actions {
+      flex: 1 1 20rem;
+      max-width: none;
+    }
+  }
+}
