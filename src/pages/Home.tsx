@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { ConfirmDialog } from "@/components/ConfirmDialog/ConfirmDialog";
 import { ContactSection } from "@/components/ContactSection/ContactSection";
 import { CtaCards } from "@/components/CtaCards/CtaCards";
-import { WhatsAppSticky } from "@/components/WhatsAppSticky/WhatsAppSticky";
 import { DevStats } from "@/components/DevStats/DevStats";
 import { ProfileCard } from "@/components/ProfileCard/ProfileCard";
 import { ProjectCard } from "@/components/ProjectCard/ProjectCard";
@@ -173,8 +172,6 @@ function Home() {
       </section>
 
       <ContactSection onContactClick={setPendingContact} />
-
-      <WhatsAppSticky onContactClick={setPendingContact} />
 
       {openService ? (
         <ServiceContactModal
