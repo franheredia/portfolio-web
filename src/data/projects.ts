@@ -85,7 +85,6 @@ export const PROJECTS: Project[] = [
     year: "2022 - 2024",
     tags: [
       "Liderazgo de equipo",
-      "Lider de delivery de software",
       "AngularJS",
       "SCSS",
     ],
