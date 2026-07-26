@@ -8,21 +8,28 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    width: 100%;
     padding: 1.5rem 1rem;
+    font: inherit;
     color: $color-on-accent;
     text-align: center;
     cursor: pointer;
     background-color: $color-accent;
+    border: 2px solid $color-accent;
     border-radius: $radius-sm;
     transition: $transition-motion, $transition-colors;
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       background-color: $color-accent-strong;
+      border-color: $color-accent-strong;
+      outline: none;
       transform: scale(1.05);
     }
   }
 
   &__item-title {
+    display: block;
     margin: 0 0 0.75rem;
     font-size: $text-size-lg;
     font-weight: $font-weight-bold;
@@ -31,6 +38,7 @@
   }
 
   &__item-description {
+    display: block;
     margin: 0;
     font-size: $text-size-sm;
     font-weight: $font-weight-base;

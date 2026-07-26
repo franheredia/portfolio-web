@@ -1,11 +1,16 @@
 .project-card {
-  cursor: pointer;
+  cursor: zoom-in;
   padding: 1.25rem;
   background-color: $color-surface-elevated;
   border: 1px solid $color-border-subtle;
   border-radius: $radius-md;
   box-shadow: $shadow-elevated;
   transition: $transition-shadow, $transition-motion;
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 4px;
+  }
 
   &--horizontal {
     display: grid;

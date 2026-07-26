@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-26T01:30:00.000Z",
+  "title": "Design System: Franco Heredia Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "canvas-deep": {
+        "role": "neutral",
+        "displayName": "Canvas Índigo",
+        "canonical": "oklch(18% 0.12 275)",
+        "tonalRamp": [
+          "oklch(12% 0.10 275)",
+          "oklch(18% 0.12 275)",
+          "oklch(24% 0.11 275)",
+          "oklch(32% 0.10 275)",
+          "oklch(42% 0.09 275)",
+          "oklch(55% 0.07 275)",
+          "oklch(70% 0.05 275)",
+          "oklch(92% 0.02 275)"
+        ]
+      },
+      "accent-signal": {
+        "role": "primary",
+        "displayName": "Naranja Señal",
+        "canonical": "oklch(62% 0.18 45)",
+        "tonalRamp": [
+          "oklch(28% 0.12 45)",
+          "oklch(38% 0.15 45)",
+          "oklch(48% 0.17 45)",
+          "oklch(55% 0.18 45)",
+          "oklch(62% 0.18 45)",
+          "oklch(72% 0.16 45)",
+          "oklch(82% 0.12 45)",
+          "oklch(94% 0.05 45)"
+        ]
+      },
+      "surface-light": {
+        "role": "neutral",
+        "displayName": "Superficie Clara",
+        "canonical": "oklch(96% 0.005 250)",
+        "tonalRamp": [
+          "oklch(20% 0.02 250)",
+          "oklch(35% 0.02 250)",
+          "oklch(50% 0.01 250)",
+          "oklch(65% 0.008 250)",
+          "oklch(78% 0.006 250)",
+          "oklch(88% 0.005 250)",
+          "oklch(94% 0.004 250)",
+          "oklch(98% 0.003 250)"
+        ]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Texto Principal",
+        "canonical": "oklch(96% 0.005 250)",
+        "tonalRamp": [
+          "oklch(15% 0.01 250)",
+          "oklch(25% 0.01 250)",
+          "oklch(35% 0.01 250)",
+          "oklch(45% 0.008 250)",
+          "oklch(55% 0.006 250)",
+          "oklch(70% 0.005 250)",
+          "oklch(85% 0.004 250)",
+          "oklch(96% 0.005 250)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display Escénico",
+        "purpose": "Titular hero en uppercase; máxima presencia visual."
+      },
+      "headline": {
+        "displayName": "Headline de Sección",
+        "purpose": "Títulos de bloques (proyectos, habilidades)."
+      },
+      "title": {
+        "displayName": "Title de Card",
+        "purpose": "Nombres de proyecto, CTAs y encabezados de modal."
+      },
+      "body": {
+        "displayName": "Body Amable",
+        "purpose": "Párrafos explicativos y copy de servicio."
+      },
+      "label": {
+        "displayName": "Label Uppercase",
+        "purpose": "Stats, metadata y etiquetas compactas."
+      }
+    },
+    "shadows": [
+      {
+        "name": "elevated",
+        "value": "0 8px 24px rgb(0 0 0 / 20%)",
+        "purpose": "Reposo de project cards y skill badges sobre canvas oscuro."
+      },
+      {
+        "name": "hero-card",
+        "value": "0 1.25rem 3rem rgb(0 0 0 / 25%)",
+        "purpose": "Profile card y panel modal; máxima elevación del escenario iluminado."
+      },
+      {
+        "name": "accent-glow",
+        "value": "0 0 15px oklch(from #e85a2b 0.95 calc(c * 0.2) h)",
+        "purpose": "Hover glow cálido en cards interactivas."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Transiciones de color, borde y sombra (250–300ms)."
+      },
+      {
+        "name": "ease-bounce",
+        "value": "cubic-bezier(0.175, 0.885, 0.32, 1.6)",
+        "purpose": "Scale táctil en CTAs, icon buttons y cards al hover."
+      },
+      {
+        "name": "modal-enter",
+        "value": "0.2s ease",
+        "purpose": "Fade del backdrop y scale-in del panel modal."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "480px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "CTA Card",
+      "kind": "card",
+      "refersTo": "cta-card",
+      "description": "Bloque de acción para abrir modal de servicio; dominante en acento.",
+      "html": "<div class=\"ds-cta-card\" role=\"button\" tabindex=\"0\"><h3 class=\"ds-cta-card__title\">Construyamos software a medida de tu necesidad</h3><p class=\"ds-cta-card__summary\">Si querés una solución tecnológica específica para tu proyecto.</p></div>",
+      "css": ".ds-cta-card { display: flex; flex-direction: column; padding: 1.5rem 1rem; text-align: center; color: #f1f2f3; background-color: #e85a2b; border-radius: 0.625rem; cursor: pointer; transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.6), background 250ms cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Libre Franklin', system-ui, sans-serif; } .ds-cta-card:hover { background-color: oklch(from #e85a2b 0.5 calc(c * 0.9) h); transform: scale(1.05); } .ds-cta-card__title { margin: 0 0 0.75rem; font-family: 'Montserrat', system-ui, sans-serif; font-size: 1.15rem; font-weight: 700; line-height: 1.3; color: #f1f2f3; } .ds-cta-card__summary { margin: 0; font-size: 0.85rem; line-height: 1.6; }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción confirmatoria en diálogos (Continuar).",
+      "html": "<button type=\"button\" class=\"ds-btn-primary\">Continuar</button>",
+      "css": ".ds-btn-primary { padding: 0.65rem 1.25rem; font-family: 'Libre Franklin', system-ui, sans-serif; font-size: 0.85rem; font-weight: 600; color: #f1f2f3; background-color: #e85a2b; border: 2px solid #e85a2b; border-radius: 0.625rem; cursor: pointer; transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { background-color: oklch(from #e85a2b 0.5 calc(c * 0.9) h); border-color: oklch(from #e85a2b 0.5 calc(c * 0.9) h); outline: none; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción de cancelar o retroceso en diálogos.",
+      "html": "<button type=\"button\" class=\"ds-btn-secondary\">Cancelar</button>",
+      "css": ".ds-btn-secondary { padding: 0.65rem 1.25rem; font-family: 'Libre Franklin', system-ui, sans-serif; font-size: 0.85rem; font-weight: 600; color: #e85a2b; background: transparent; border: 2px solid #e85a2b; border-radius: 0.625rem; cursor: pointer; transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-secondary:hover, .ds-btn-secondary:focus-visible { color: #f1f2f3; background-color: #e85a2b; outline: none; }"
+    },
+    {
+      "name": "Social Icon Button",
+      "kind": "button",
+      "refersTo": "social-link",
+      "description": "Contacto circular en profile card.",
+      "html": "<button type=\"button\" class=\"ds-social-link\" aria-label=\"WhatsApp\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7.9 20A9 9 0 1 0 4 16.1L2 22Z\"/></svg></button>",
+      "css": ".ds-social-link { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; padding: 0; color: #e85a2b; background: transparent; border: 2px solid #e85a2b; border-radius: 50%; cursor: pointer; transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.6), background 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social-link:hover, .ds-social-link:focus-visible { color: #f1f2f3; background-color: #e85a2b; outline: none; transform: scale(1.1); }"
+    },
+    {
+      "name": "Project Tag",
+      "kind": "chip",
+      "refersTo": "project-tag",
+      "description": "Etiqueta de tecnología en project card.",
+      "html": "<span class=\"ds-project-tag\">ReactJS</span>",
+      "css": ".ds-project-tag { display: inline-block; padding: 0.25rem 0.65rem; font-family: 'Montserrat', system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; color: #e85a2b; border: 2px solid #e85a2b; border-radius: 9999px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "cta-card",
+      "description": "Tarjeta de proyecto sobre canvas oscuro con hover glow.",
+      "html": "<article class=\"ds-project-card\"><img class=\"ds-project-card__image\" src=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='180'/%3E\" alt=\"\"><div class=\"ds-project-card__body\"><h3 class=\"ds-project-card__name\">Toyota Argentina</h3><p class=\"ds-project-card__year\">2021</p></div></article>",
+      "css": ".ds-project-card { padding: 1.25rem; background-color: rgb(255 255 255 / 8%); border: 1px solid rgb(255 255 255 / 14%); border-radius: 1rem; box-shadow: 0 8px 24px rgb(0 0 0 / 20%); cursor: pointer; transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.6); font-family: 'Libre Franklin', system-ui, sans-serif; color: #f1f2f3; } .ds-project-card:hover { box-shadow: 0 0 15px oklch(from #e85a2b 0.95 calc(c * 0.2) h); transform: scale(1.01); } .ds-project-card__image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem; } .ds-project-card__name { margin: 0; font-family: 'Montserrat', system-ui, sans-serif; font-size: 1.35rem; font-weight: 700; line-height: 1.2; } .ds-project-card__year { margin: 0.5rem 0 0; font-size: 0.85rem; color: rgb(241 242 243 / 55%); }"
+    },
+    {
+      "name": "Skill Badge",
+      "kind": "card",
+      "refersTo": "cta-card",
+      "description": "Badge cuadrado de habilidad con icono dinámico.",
+      "html": "<div class=\"ds-skill-badge\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#61DAFB\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 2L2 7l10 5 10-5-10-5z\"/><path d=\"M2 17l10 5 10-5\"/><path d=\"M2 12l10 5 10-5\"/></svg><span class=\"ds-skill-badge__label\">ReactJs</span></div>",
+      "css": ".ds-skill-badge { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; aspect-ratio: 1; padding: 1rem 0.5rem; color: #f1f2f3; background-color: rgb(255 255 255 / 8%); border: 1px solid rgb(255 255 255 / 14%); border-radius: 1rem; box-shadow: 0 8px 24px rgb(0 0 0 / 20%); transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.6), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-skill-badge:hover { transform: scale(1.05); box-shadow: 0 0 15px oklch(from #e85a2b 0.95 calc(c * 0.2) h); } .ds-skill-badge__label { font-family: 'Montserrat', system-ui, sans-serif; font-size: 0.75rem; font-weight: 600; line-height: 1.2; text-align: center; }"
+    },
+    {
+      "name": "Profile Card",
+      "kind": "card",
+      "refersTo": "cta-card",
+      "description": "Tarjeta iluminada de identidad personal sobre el canvas oscuro.",
+      "html": "<div class=\"ds-profile-card\"><div class=\"ds-profile-card__photo\"></div><h2 class=\"ds-profile-card__name\">Franco Heredia</h2><p class=\"ds-profile-card__tagline\">Desarrollador Full Stack</p></div>",
+      "css": ".ds-profile-card { width: 100%; max-width: 360px; padding: 1.5rem; background: #f1f2f3; border-radius: 2rem; box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 25%); font-family: 'Libre Franklin', system-ui, sans-serif; text-align: center; } .ds-profile-card__photo { width: 80%; aspect-ratio: 4 / 5; margin: 0 auto; border-radius: 1.25rem; background-color: oklch(from #e85a2b 0.8 calc(c * 0.8) h); } .ds-profile-card__name { margin: 1.25rem 0 0.5rem; font-family: 'Montserrat', system-ui, sans-serif; font-size: 1.35rem; font-weight: 700; line-height: 1.2; color: #030247; } .ds-profile-card__tagline { margin: 0; font-size: 0.85rem; line-height: 1.5; color: #030247; }"
+    },
+    {
+      "name": "Contact Link Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Botón block de contacto dentro del modal de servicio.",
+      "html": "<a href=\"#\" class=\"ds-contact-link\"><span class=\"ds-contact-link__label\">WhatsApp</span><span class=\"ds-contact-link__display\">+54 9 351 2292543</span></a>",
+      "css": ".ds-contact-link { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; padding: 0.5rem 0.85rem; color: #f1f2f3; text-decoration: none; background-color: #e85a2b; border: 2px solid #e85a2b; border-radius: 0.625rem; transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Libre Franklin', system-ui, sans-serif; } .ds-contact-link:hover, .ds-contact-link:focus-visible { background-color: oklch(from #e85a2b 0.5 calc(c * 0.9) h); border-color: oklch(from #e85a2b 0.5 calc(c * 0.9) h); outline: none; } .ds-contact-link__label { font-family: 'Montserrat', system-ui, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.9; } .ds-contact-link__display { font-size: 0.85rem; font-weight: 600; line-height: 1.3; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Escenario Técnico",
+    "overview": "El portfolio se comporta como un escenario oscuro donde el contenido ocupa el foco y el acento naranja funciona como señal de acción. La tipografía Montserrat en display uppercase transmite presencia profesional; Libre Franklin en cuerpo mantiene la lectura amable y accesible para visitantes no técnicos. Las superficies claras (tarjeta de perfil, modales) son el escenario iluminado sobre el fondo índigo profundo; las tarjetas semitransparentes mantienen la profundidad tonual sin competir con el hero.",
+    "keyCharacteristics": [
+      "Fondo índigo profundo (#030247) como lienzo continuo del escenario",
+      "Acento naranja señal (#e85a2b) reservado para CTAs, tags, links de acción y estados hover",
+      "Contraste claro/oscuro entre tarjeta de perfil o modal (superficie clara) y cards sobre canvas (superficie elevada translúcida)",
+      "Tipografía dual: Montserrat para títulos y labels; Libre Franklin para párrafos",
+      "Interacción táctil con scale() y easing elástico en elementos clicables",
+      "Profundidad por capas tonales en reposo; glow cálido al hover"
+    ],
+    "rules": [
+      {
+        "name": "The Signal-Only Rule",
+        "body": "El acento naranja aparece en CTAs, contacto, tags y acciones interactivas. No usarlo para decoración de fondo, bordes masivos ni bloques enteros de contenido informativo.",
+        "section": "colors"
+      },
+      {
+        "name": "The Spotlight Card Rule",
+        "body": "Las superficies claras (#f1f2f3) se reservan para la identidad personal (profile card) y diálogos modales. El resto del contenido vive sobre capas translúcidas o el canvas.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stage Title Rule",
+        "body": "Los titulares de mayor jerarquía van en uppercase con Montserrat Black. No mezclar sentence case en display.",
+        "section": "typography"
+      },
+      {
+        "name": "The Body Warmth Rule",
+        "body": "Párrafos largos y explicativos siempre en Libre Franklin regular; Montserrat queda para encabezados y labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal-Glow Rule",
+        "body": "En reposo, la profundidad se comunica con tono y borde, no con sombras dramáticas. El glow accent aparece como respuesta al hover, no como decoración permanente.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Modal Stage Rule",
+        "body": "Modales usan scrim blur + panel claro elevado; nunca modales oscuros sobre canvas oscuro sin contraste suficiente.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do usar el canvas #030247 como fondo continuo de toda la página.",
+      "Do reservar #e85a2b para CTAs, contacto, tags y estados hover de acción.",
+      "Do aplicar Montserrat uppercase black en titulares hero y Montserrat bold en secciones.",
+      "Do usar Libre Franklin para párrafos descriptivos y copy explicativo.",
+      "Do dar feedback táctil con scale(1.05) y transición elástica en elementos clicables principales.",
+      "Do mantener contraste alto entre superficies claras (modales, profile) y el canvas oscuro."
+    ],
+    "donts": [
+      "Don't expandir el acento naranja a fondos de sección completos fuera de CTAs.",
+      "Don't introducir una tercera familia tipográfica; la pareja Montserrat + Libre Franklin es fija.",
+      "Don't usar sombras pesadas en reposo; preferir capas tonales y reservar glow para hover.",
+      "Don't crear páginas con estética distinta al escenario técnico sin decisión explícita de redesign.",
+      "Don't reemplazar icon buttons circulares outline por botones rectangulares genéricos en contacto social."
+    ]
+  }
+}

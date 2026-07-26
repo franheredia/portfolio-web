@@ -24,11 +24,11 @@ export function ServiceContactModal({
         </h2>
 
         <h3 className="service-contact-modal__section-title">Cómo suelo trabajar</h3>
-        <div className="service-contact-modal__steps">
+        <ol className="service-contact-modal__steps">
           {service.processSteps.map((step) => (
-            <div key={step}>{step}</div>
+            <li key={step}>{step}</li>
           ))}
-        </div>
+        </ol>
 
         <h3 className="service-contact-modal__contact-title">
           ¡Coordinemos para comenzar!

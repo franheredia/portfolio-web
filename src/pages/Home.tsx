@@ -23,7 +23,7 @@ function Home() {
   const openService = openServiceId ? getServiceById(openServiceId) : undefined;
 
   return (
-    <div className="home-container">
+    <main className="home-container">
       <section className="home-hero" aria-labelledby="home-hero-title">
         <div className="home-hero__layout">
           <ProfileCard onContactClick={setPendingContact} />
@@ -114,7 +114,7 @@ function Home() {
           onCancel={() => setPendingContact(null)}
         />
       ) : null}
-    </div>
+    </main>
   );
 }
 

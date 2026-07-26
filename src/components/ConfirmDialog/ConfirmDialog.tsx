@@ -27,7 +27,7 @@ export function ConfirmDialog({
       <div className="confirm-dialog">
         <p className="confirm-dialog__channel">Contáctame a través de {channelLabel}</p>
         <p className="confirm-dialog__question">
-          Al precionar "Continuar", serás redirigido a {channelLabel}
+          Al presionar "Continuar", serás redirigido a {channelLabel}
         </p>
         <h2 id={TITLE_ID} className="confirm-dialog__address">
           {display}

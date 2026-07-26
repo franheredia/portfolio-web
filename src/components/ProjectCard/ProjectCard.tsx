@@ -20,14 +20,14 @@ function ProjectTags({ tags }: { tags: string[] }) {
   );
 }
 
-function ProjectCardLink({ href }: { href: string }) {
+function ProjectCardLink({ href, title }: { href: string; title: string }) {
   return (
     <a
       href={href}
       className="project-card__link"
-      aria-label="Ver proyecto"
+      aria-label={`Ver proyecto: ${title}`}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       onClick={(event) => event.stopPropagation()}
     >
       <ArrowRight size={20} aria-hidden />
@@ -51,11 +51,23 @@ function ProjectImage({ src, title }: { src: string; title: string }) {
   return (
     <img
       src={src}
-      alt=""
+      alt={title}
       className="project-card__image"
+      loading="lazy"
+      decoding="async"
       onError={() => setFailed(true)}
     />
   );
+}
+
+function focusProjectCard(element: HTMLElement) {
+  element.scrollIntoView({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth",
+    block: "center",
+    inline: "nearest",
+  });
 }
 
 export function ProjectCard({ project, format }: ProjectCardProps) {
@@ -67,12 +79,16 @@ export function ProjectCard({ project, format }: ProjectCardProps) {
   return (
     <article
       className={`project-card ${modifier}`}
+      tabIndex={0}
+      aria-label={`Enfocar proyecto: ${project.title}`}
       onClick={(event) => {
-        event.currentTarget.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "nearest",
-        });
+        focusProjectCard(event.currentTarget);
+      }}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          focusProjectCard(event.currentTarget);
+        }
       }}
     >
       <ProjectImage src={project.imageSrc} title={project.title} />
@@ -86,7 +102,7 @@ export function ProjectCard({ project, format }: ProjectCardProps) {
         </div>
         <footer className="project-card__footer">
           <span className="project-card__year">{project.year}</span>
-          <ProjectCardLink href={project.href} />
+          <ProjectCardLink href={project.href} title={project.title} />
         </footer>
       </div>
     </article>

@@ -9,7 +9,11 @@ type ModalProps = {
   wide?: boolean;
 };
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
 export function Modal({ titleId, onClose, children, wide = false }: ModalProps) {
+  const panelRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const labelId = useId();
 
@@ -20,6 +24,31 @@ export function Modal({ titleId, onClose, children, wide = false }: ModalProps) 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
+        return;
+      }
+
+      if (event.key !== "Tab" || !panelRef.current) {
+        return;
+      }
+
+      const focusables = Array.from(
+        panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+      );
+
+      if (focusables.length === 0) {
+        return;
+      }
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -42,6 +71,7 @@ export function Modal({ titleId, onClose, children, wide = false }: ModalProps) 
         onClick={onClose}
       />
       <div
+        ref={panelRef}
         className={`modal__panel${wide ? " modal__panel--wide" : ""}`}
         role="dialog"
         aria-modal="true"
