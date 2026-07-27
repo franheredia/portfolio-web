@@ -45,7 +45,7 @@ export const HERO = {
 } as const;
 
 export const STATS = [
-  { value: 8, label: "Años de experiencia" },
+  { value: 6, label: "Años de experiencia" },
   { value: 12, label: "Proyectos completados" },
   { value: 10, label: "Clientes satisfechos" },
 ] as const;
