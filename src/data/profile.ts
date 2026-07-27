@@ -44,6 +44,12 @@ export const HERO = {
   imageAlt: "Foto de perfil de Fran Heredia",
 } as const;
 
+export const CV_DOWNLOAD = {
+  href: "./cv.pdf",
+  fileName: "Franco Heredia CV - ESP - 2026.pdf",
+  label: "Descargar CV",
+} as const;
+
 export const STATS = [
   { value: 6, label: "Años de experiencia" },
   { value: 12, label: "Proyectos completados" },

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { SiWhatsapp } from "@icons-pack/react-simple-icons";
 import linkedInSvg from "@/assets/linkedIn.svg?raw";
-import { Mail } from "lucide-react";
+import { FileDown, Mail } from "lucide-react";
 import { SOCIAL_LINKS, type ContactChannel } from "@/data/contact";
-import { HERO } from "@/data/profile";
+import { CV_DOWNLOAD, HERO } from "@/data/profile";
 import "./ProfileCard.scss";
 
 type SocialIconId = "email" | "linkedin" | "whatsapp";
@@ -61,25 +61,35 @@ function ProfilePhoto() {
 export function ProfileCard({ onContactClick }: ProfileCardProps) {
   return (
     <div className="profile-card">
-      <figure className="profile-card__figure">
-        <ProfilePhoto />
-      </figure>
-      <h2 className="profile-card__name">{HERO.name}</h2>
-      <p className="profile-card__tagline">{HERO.tagline}</p>
-      <ul className="profile-card__social" aria-label="Redes sociales">
-        {SOCIAL_LINKS.map(({ channel, label }) => (
-          <li key={channel}>
-            <button
-              type="button"
-              className="profile-card__social-link"
-              aria-label={label}
-              onClick={() => onContactClick(channel)}
-            >
-              {renderSocialIcon(channel)}
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="profile-card__container">
+        <figure className="profile-card__figure">
+          <ProfilePhoto />
+        </figure>
+        <h2 className="profile-card__name">{HERO.name}</h2>
+        <p className="profile-card__tagline">{HERO.tagline}</p>
+        <ul className="profile-card__social" aria-label="Redes sociales">
+          {SOCIAL_LINKS.map(({ channel, label }) => (
+            <li key={channel}>
+              <button
+                type="button"
+                className="profile-card__social-link"
+                aria-label={label}
+                onClick={() => onContactClick(channel)}
+              >
+                {renderSocialIcon(channel)}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <a
+        className="profile-card__cv-download"
+        href={CV_DOWNLOAD.href}
+        download={CV_DOWNLOAD.fileName}
+      >
+        <FileDown aria-hidden="true" />
+        {CV_DOWNLOAD.label}
+      </a>
     </div>
   );
 }
